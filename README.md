@@ -2,10 +2,10 @@
 
 **CURRENT WORKING TITLE: Twitch Make Me A Sandwich** 
 
-**Project Lead:** Ric
+-**Project Lead:** Ric
 
-**Art Lead:** Carl
+-**Art Lead:** Carl
 
-**Design Lead:** Pierre-Luc
+-**Design Lead:** Pierre-Luc
 
-**Technical Lead:** Yves
+-**Technical Lead:** Yves
