@@ -834,8 +834,25 @@ PrefabInstance:
       propertyPath: DEBUG
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9074012569711168965, guid: 9cd0e553cee3d2f488e3f7ffbe1d9380, type: 3}
+      propertyPath: HoldPos
+      value: 
+      objectReference: {fileID: 7701400856868972776}
+    - target: {fileID: 9074012569711168965, guid: 9cd0e553cee3d2f488e3f7ffbe1d9380, type: 3}
+      propertyPath: holding
+      value: 
+      objectReference: {fileID: 7701400856868972776}
+    - target: {fileID: 9074012569711168965, guid: 9cd0e553cee3d2f488e3f7ffbe1d9380, type: 3}
+      propertyPath: GrabbingMask.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cd0e553cee3d2f488e3f7ffbe1d9380, type: 3}
+--- !u!4 &7701400856868972776 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6591164384180673548, guid: 9cd0e553cee3d2f488e3f7ffbe1d9380, type: 3}
+  m_PrefabInstance: {fileID: 7701400856868972775}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8391177016133316349
 PrefabInstance:
   m_ObjectHideFlags: 0
