@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Claw : MonoBehaviour
 {
-    public int speed = 5;
+    public int acceleration = 5;
     public bool DEBUG;
 
     public LayerMask GrabbingMask;
@@ -23,7 +23,7 @@ public class Claw : MonoBehaviour
         float hori = Input.GetAxisRaw("Horizontal");
         float vert = Input.GetAxisRaw("Vertical");
 
-        transform.Translate(new Vector3(hori, 0, vert) * speed * Time.deltaTime);
+        transform.Translate(new Vector3(hori, 0, vert) * acceleration * Time.deltaTime);
 
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -37,6 +37,7 @@ public class Claw : MonoBehaviour
                     HeldGO.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
                     HeldGO.transform.SetParent(HoldPos, true);
                     HeldGO.transform.localPosition = Vector3.zero;
+
                     //HeldGO.transform.localScale = Vector3.one;
 
                     Holding = true;
@@ -46,10 +47,8 @@ public class Claw : MonoBehaviour
             {
                 HeldGO.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
                 HeldGO.transform.SetParent(null);
-                //HeldGO.transform.localPosition = Vector3.zero;
 
                 HeldGO = null;
-
                 Holding = false;
             }
 
