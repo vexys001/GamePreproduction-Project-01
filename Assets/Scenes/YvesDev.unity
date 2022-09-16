@@ -704,6 +704,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &608424865
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 608424866}
+  m_Layer: 0
+  m_Name: DumpPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &608424866
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 608424865}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 28.5, y: 13.5, z: 0.00999999}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &723154426
 GameObject:
   m_ObjectHideFlags: 0
@@ -1104,7 +1135,7 @@ PrefabInstance:
       objectReference: {fileID: 101437638}
     - target: {fileID: 1630105370, guid: 9cd0e553cee3d2f488e3f7ffbe1d9380, type: 3}
       propertyPath: m_VersionIndex
-      value: 25
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 7701400858499024880, guid: 9cd0e553cee3d2f488e3f7ffbe1d9380, type: 3}
       propertyPath: m_RootOrder
@@ -1154,9 +1185,25 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 101437638}
+    - target: {fileID: 7701400858499024883, guid: 9cd0e553cee3d2f488e3f7ffbe1d9380, type: 3}
+      propertyPath: m_Size.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7701400858499024883, guid: 9cd0e553cee3d2f488e3f7ffbe1d9380, type: 3}
+      propertyPath: m_Size.z
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7701400858499024884, guid: 9cd0e553cee3d2f488e3f7ffbe1d9380, type: 3}
       propertyPath: m_Name
       value: Claw
+      objectReference: {fileID: 0}
+    - target: {fileID: 9074012569711168965, guid: 9cd0e553cee3d2f488e3f7ffbe1d9380, type: 3}
+      propertyPath: DumpPos
+      value: 
+      objectReference: {fileID: 608424866}
+    - target: {fileID: 9074012569711168965, guid: 9cd0e553cee3d2f488e3f7ffbe1d9380, type: 3}
+      propertyPath: ReturnSpeed
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cd0e553cee3d2f488e3f7ffbe1d9380, type: 3}
