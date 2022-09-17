@@ -7,9 +7,9 @@ public class Claw : MonoBehaviour
     private Rigidbody _rb;
 
     [Header("Speeds")]
-    public int acceleration = 5;
+    public float acceleration = 5;
     public float deccelerationRate = 0.5f;
-    public int ReturnSpeed = 5;
+    public float ReturnSpeed = 5;
 
     [Header("Item Holding")]
     public LayerMask GrabbingMask;
@@ -33,8 +33,6 @@ public class Claw : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
         //transform.Translate(new Vector3(hori, 0, vert) * acceleration * Time.deltaTime);
 
         if (!_holding)
@@ -47,7 +45,7 @@ public class Claw : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.E))
             {
-                _rb.velocity = Vector3.zero;
+
 
                 RaycastHit[] hits = Physics.RaycastAll(transform.position, Vector3.down, 25, GrabbingMask);
                 if (hits.Length > 0)
@@ -60,9 +58,13 @@ public class Claw : MonoBehaviour
         {
             Vector3 returnMvt = DumpPos.position - transform.position;
 
-            if (returnMvt.magnitude >= 0.05f)
+            if (returnMvt.magnitude >= 0.1f)
             {
-                _rb.MovePosition(returnMvt.normalized * ReturnSpeed * Time.deltaTime);
+                if(returnMvt.magnitude >= 1)
+                {
+                    returnMvt.Normalize();
+                }
+                _rb.AddForce(returnMvt * ReturnSpeed * Time.deltaTime, ForceMode.Impulse);
                 //transform.Translate(mvt.normalized * ReturnSpeed * Time.deltaTime);
             }
             else
@@ -81,6 +83,7 @@ public class Claw : MonoBehaviour
         HeldGO.transform.SetParent(HoldPos, true);
         HeldGO.transform.localPosition = Vector3.zero;
 
+        _rb.velocity = Vector3.zero;
         _holding = true;
     }
 
@@ -89,6 +92,7 @@ public class Claw : MonoBehaviour
         HeldGO.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
         HeldGO.transform.SetParent(null);
 
+        _rb.velocity = Vector3.zero;
         HeldGO = null;
         _holding = false;
     }
