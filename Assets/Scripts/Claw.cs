@@ -4,39 +4,51 @@ using UnityEngine;
 
 public class Claw : MonoBehaviour
 {
+    private Rigidbody _rb;
+
+    [Header("Speeds")]
     public int acceleration = 5;
+    public float deccelerationRate = 0.5f;
     public int ReturnSpeed = 5;
-    public bool DEBUG;
 
     [Header("Item Holding")]
     public LayerMask GrabbingMask;
     public Transform HoldPos;
     public GameObject HeldGO;
-    public bool Holding;
+    [SerializeField] private bool _holding;
 
     [Header("Dumping")]
     public Transform DumpPos;
 
+    [Header("DEBUG")]
+    public bool DEBUG;
+
     // Start is called before the first frame update
     void Start()
     {
-        Holding = false;
+        _rb = GetComponent<Rigidbody>();
+        _holding = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        float hori = Input.GetAxisRaw("Horizontal");
-        float vert = Input.GetAxisRaw("Vertical");
+
 
         //transform.Translate(new Vector3(hori, 0, vert) * acceleration * Time.deltaTime);
 
-        if (!Holding)
+        if (!_holding)
         {
-            transform.Translate(new Vector3(hori, 0, vert) * acceleration * Time.deltaTime);
+            float hori = Input.GetAxisRaw("Horizontal");
+            float vert = Input.GetAxisRaw("Vertical");
+
+            _rb.AddForce(new Vector3(hori, 0, vert) * acceleration * Time.deltaTime, ForceMode.Impulse);
+            //transform.Translate(new Vector3(hori, 0, vert) * acceleration * Time.deltaTime);
 
             if (Input.GetKeyDown(KeyCode.E))
             {
+                _rb.velocity = Vector3.zero;
+
                 RaycastHit[] hits = Physics.RaycastAll(transform.position, Vector3.down, 25, GrabbingMask);
                 if (hits.Length > 0)
                 {
@@ -46,11 +58,12 @@ public class Claw : MonoBehaviour
         }
         else
         {
-            Vector3 mvt = DumpPos.position - transform.position;
+            Vector3 returnMvt = DumpPos.position - transform.position;
 
-            if (mvt.magnitude >= 0.05f)
+            if (returnMvt.magnitude >= 0.05f)
             {
-                transform.Translate(mvt.normalized * ReturnSpeed * Time.deltaTime);
+                _rb.MovePosition(returnMvt.normalized * ReturnSpeed * Time.deltaTime);
+                //transform.Translate(mvt.normalized * ReturnSpeed * Time.deltaTime);
             }
             else
             {
@@ -68,7 +81,7 @@ public class Claw : MonoBehaviour
         HeldGO.transform.SetParent(HoldPos, true);
         HeldGO.transform.localPosition = Vector3.zero;
 
-        Holding = true;
+        _holding = true;
     }
 
     private void DropObject()
@@ -77,7 +90,7 @@ public class Claw : MonoBehaviour
         HeldGO.transform.SetParent(null);
 
         HeldGO = null;
-        Holding = false;
+        _holding = false;
     }
 
     private void OnDrawGizmos()
