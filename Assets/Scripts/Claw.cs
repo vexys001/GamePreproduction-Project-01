@@ -45,8 +45,6 @@ public class Claw : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.E))
             {
-
-
                 RaycastHit[] hits = Physics.RaycastAll(transform.position, Vector3.down, 25, GrabbingMask);
                 if (hits.Length > 0)
                 {

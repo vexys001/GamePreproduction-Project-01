@@ -1581,6 +1581,10 @@ PrefabInstance:
       propertyPath: m_Size.z
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7701400858499024883, guid: 9cd0e553cee3d2f488e3f7ffbe1d9380, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 1d3c83826782ecb4b964e0de645e38a8, type: 2}
     - target: {fileID: 7701400858499024884, guid: 9cd0e553cee3d2f488e3f7ffbe1d9380, type: 3}
       propertyPath: m_Name
       value: Claw
