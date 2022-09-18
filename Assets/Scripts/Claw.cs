@@ -4,17 +4,31 @@ using UnityEngine;
 
 public class Claw : MonoBehaviour
 {
-    public int speed = 5;
-    public bool DEBUG;
+    private Rigidbody _rb;
+    public GameObject ClawObject;
 
+    [Header("Speeds")]
+    public float acceleration = 5;
+    public float deccelerationRate = 0.5f;
+    public float ReturnSpeed = 5;
+
+    [Header("Item Holding")]
     public LayerMask GrabbingMask;
     public Transform HoldPos;
     public GameObject HeldGO;
-    public bool Holding;
+    [SerializeField] private bool _holding;
+
+    [Header("Dumping")]
+    public Transform DumpPos;
+
+    [Header("DEBUG")]
+    public bool DEBUG;
+
     // Start is called before the first frame update
     void Start()
     {
-        Holding = false;
+        _rb = GetComponent<Rigidbody>();
+        _holding = false;
     }
 
     // Update is called once per frame
@@ -23,44 +37,75 @@ public class Claw : MonoBehaviour
         float hori = Input.GetAxisRaw("Horizontal");
         float vert = Input.GetAxisRaw("Vertical");
 
-        transform.Translate(new Vector3(hori, 0, vert) * speed * Time.deltaTime);
+        _rb.AddForce(new Vector3(hori, 0, vert) * acceleration * Time.deltaTime, ForceMode.Impulse);
+        //transform.Translate(new Vector3(hori, 0, vert) * acceleration * Time.deltaTime);
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (!Holding)
+            if (!_holding)
             {
-                RaycastHit[] hits = Physics.RaycastAll(transform.position, Vector3.down, 25, GrabbingMask);
+                RaycastHit[] hits = Physics.RaycastAll(ClawObject.transform.position, -ClawObject.transform.up, 25, GrabbingMask);
                 if (hits.Length > 0)
                 {
-                    HeldGO = hits[0].collider.gameObject;
-
-                    HeldGO.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-                    HeldGO.transform.SetParent(HoldPos, true);
-                    HeldGO.transform.localPosition = Vector3.zero;
-                    //HeldGO.transform.localScale = Vector3.one;
-
-                    Holding = true;
+                    TakeObject(hits[0].collider.gameObject);
                 }
             }
             else
             {
-                HeldGO.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-                HeldGO.transform.SetParent(null);
-                //HeldGO.transform.localPosition = Vector3.zero;
+                DropObject();
+                /*Return
+                Vector3 returnMvt = DumpPos.position - transform.position;
 
-                HeldGO = null;
-
-                Holding = false;
+                if (returnMvt.magnitude >= 0.1f)
+                {
+                    if(returnMvt.magnitude >= 1)
+                    {
+                        returnMvt.Normalize();
+                    }
+                    _rb.AddForce(returnMvt * ReturnSpeed * Time.deltaTime, ForceMode.Impulse);
+                    //transform.Translate(mvt.normalized * ReturnSpeed * Time.deltaTime);
+                }
+                else
+                {
+                    DropObject();
+                }*/
             }
-
         }
+
+
+    }
+
+    private void TakeObject(GameObject GameObj)
+    {
+        HeldGO = GameObj;
+        //ClawObject.GetComponent<FixedJoint>().connectedBody = GameObj.GetComponent<Rigidbody>();
+
+        HeldGO.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        HeldGO.transform.SetParent(HoldPos, true);
+        HeldGO.transform.localPosition = Vector3.zero;
+
+        _rb.velocity = Vector3.zero;
+        _holding = true;
+    }
+
+    private void DropObject()
+    {
+        //ClawObject.GetComponent<FixedJoint>().connectedBody = null;
+
+        HeldGO.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+        HeldGO.transform.SetParent(null);
+
+        _rb.velocity = Vector3.zero;
+        //ClawObject.SetActive(true);
+        HeldGO = null;
+        _holding = false;
     }
 
     private void OnDrawGizmos()
     {
         if (DEBUG)
         {
-            Debug.DrawLine(transform.position, transform.position + Vector3.down * 20, Color.red, 0.1f);
+            Debug.DrawLine(ClawObject.transform.position, ClawObject.transform.position - ClawObject.transform.up * 20, Color.red, 0.1f);
         }
     }
 }
