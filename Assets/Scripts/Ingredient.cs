@@ -8,11 +8,13 @@ public class Ingredient : MonoBehaviour
 {
     public enum Type
     {
-        Ham,
-        Bread,
-        Cheese
+        NONE,
+        LETUCE,
+        BREAD,
+        TOMATO
     }
 
+    [SerializeField] private Type _type;
     private Rigidbody _rb;
     private Coroutine _moveCoroutine;
 
@@ -21,6 +23,11 @@ public class Ingredient : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
         _rb.useGravity = false;
         _rb.isKinematic = true;
+    }
+
+    public Ingredient.Type GetType()
+    {
+        return _type;
     }
 
     public void StartMoving(float speed)
