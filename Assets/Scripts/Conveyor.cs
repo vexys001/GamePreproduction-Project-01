@@ -45,7 +45,7 @@ public class Conveyor : MonoBehaviour
 
     private void OnSpawnIngredient(Ingredient.Type ingredient)
     {
-        Ingredient ingredientPrefab = _ingredientsPrefab.Find(ing => ing.GetType() == ingredient);
+        Ingredient ingredientPrefab = _ingredientsPrefab.Find(ing => ing.GetIngredientType() == ingredient);
         SpawnIngredient(ingredientPrefab);
     }
 

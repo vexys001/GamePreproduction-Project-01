@@ -25,7 +25,7 @@ public class Ingredient : MonoBehaviour
         _rb.isKinematic = true;
     }
 
-    public Ingredient.Type GetType()
+    public Ingredient.Type GetIngredientType()
     {
         return _type;
     }
