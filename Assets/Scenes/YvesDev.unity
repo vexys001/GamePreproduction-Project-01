@@ -1453,6 +1453,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 20}
+--- !u!1 &1954055862 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5905846239976028763, guid: 9cd0e553cee3d2f488e3f7ffbe1d9380, type: 3}
+  m_PrefabInstance: {fileID: 7701400856868972775}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &227396880467111654
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1523,7 +1528,7 @@ PrefabInstance:
       objectReference: {fileID: 101437638}
     - target: {fileID: 1630105370, guid: 9cd0e553cee3d2f488e3f7ffbe1d9380, type: 3}
       propertyPath: m_VersionIndex
-      value: 115
+      value: 118
       objectReference: {fileID: 0}
     - target: {fileID: 1931659920, guid: 9cd0e553cee3d2f488e3f7ffbe1d9380, type: 3}
       propertyPath: m_AngularZLimit.limit
@@ -1536,6 +1541,10 @@ PrefabInstance:
     - target: {fileID: 1931659920, guid: 9cd0e553cee3d2f488e3f7ffbe1d9380, type: 3}
       propertyPath: m_HighAngularXLimit.limit
       value: 17.455803
+      objectReference: {fileID: 0}
+    - target: {fileID: 5905846239976028763, guid: 9cd0e553cee3d2f488e3f7ffbe1d9380, type: 3}
+      propertyPath: m_Name
+      value: Claw
       objectReference: {fileID: 0}
     - target: {fileID: 6402798248354887018, guid: 9cd0e553cee3d2f488e3f7ffbe1d9380, type: 3}
       propertyPath: m_Mass
@@ -1591,12 +1600,16 @@ PrefabInstance:
       objectReference: {fileID: 101437638}
     - target: {fileID: 7701400858499024884, guid: 9cd0e553cee3d2f488e3f7ffbe1d9380, type: 3}
       propertyPath: m_Name
-      value: Claw
+      value: Base
       objectReference: {fileID: 0}
     - target: {fileID: 9074012569711168965, guid: 9cd0e553cee3d2f488e3f7ffbe1d9380, type: 3}
       propertyPath: DumpPos
       value: 
       objectReference: {fileID: 608424866}
+    - target: {fileID: 9074012569711168965, guid: 9cd0e553cee3d2f488e3f7ffbe1d9380, type: 3}
+      propertyPath: ClawObject
+      value: 
+      objectReference: {fileID: 1954055862}
     - target: {fileID: 9074012569711168965, guid: 9cd0e553cee3d2f488e3f7ffbe1d9380, type: 3}
       propertyPath: ReturnSpeed
       value: 15

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Claw : MonoBehaviour
 {
     private Rigidbody _rb;
+    public GameObject ClawObject;
 
     [Header("Speeds")]
     public float acceleration = 5;
@@ -33,17 +34,15 @@ public class Claw : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float hori = Input.GetAxisRaw("Horizontal");
+        float vert = Input.GetAxisRaw("Vertical");
+
+        _rb.AddForce(new Vector3(hori, 0, vert) * acceleration * Time.deltaTime, ForceMode.Impulse);
         //transform.Translate(new Vector3(hori, 0, vert) * acceleration * Time.deltaTime);
 
-        if (!_holding)
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            float hori = Input.GetAxisRaw("Horizontal");
-            float vert = Input.GetAxisRaw("Vertical");
-
-            _rb.AddForce(new Vector3(hori, 0, vert) * acceleration * Time.deltaTime, ForceMode.Impulse);
-            //transform.Translate(new Vector3(hori, 0, vert) * acceleration * Time.deltaTime);
-
-            if (Input.GetKeyDown(KeyCode.E))
+            if (!_holding)
             {
                 RaycastHit[] hits = Physics.RaycastAll(transform.position, Vector3.down, 25, GrabbingMask);
                 if (hits.Length > 0)
@@ -51,25 +50,28 @@ public class Claw : MonoBehaviour
                     TakeObject(hits[0].collider.gameObject);
                 }
             }
-        }
-        else
-        {
-            Vector3 returnMvt = DumpPos.position - transform.position;
-
-            if (returnMvt.magnitude >= 0.1f)
-            {
-                if(returnMvt.magnitude >= 1)
-                {
-                    returnMvt.Normalize();
-                }
-                _rb.AddForce(returnMvt * ReturnSpeed * Time.deltaTime, ForceMode.Impulse);
-                //transform.Translate(mvt.normalized * ReturnSpeed * Time.deltaTime);
-            }
             else
             {
                 DropObject();
+                /*Return
+                Vector3 returnMvt = DumpPos.position - transform.position;
+
+                if (returnMvt.magnitude >= 0.1f)
+                {
+                    if(returnMvt.magnitude >= 1)
+                    {
+                        returnMvt.Normalize();
+                    }
+                    _rb.AddForce(returnMvt * ReturnSpeed * Time.deltaTime, ForceMode.Impulse);
+                    //transform.Translate(mvt.normalized * ReturnSpeed * Time.deltaTime);
+                }
+                else
+                {
+                    DropObject();
+                }*/
             }
         }
+
 
     }
 
@@ -99,7 +101,7 @@ public class Claw : MonoBehaviour
     {
         if (DEBUG)
         {
-            Debug.DrawLine(transform.position, transform.position + Vector3.down * 20, Color.red, 0.1f);
+            Debug.DrawLine(ClawObject.transform.position, ClawObject.transform.position - ClawObject.transform.up * 20, Color.red, 0.1f);
         }
     }
 }
