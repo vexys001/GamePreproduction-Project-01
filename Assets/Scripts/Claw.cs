@@ -44,7 +44,7 @@ public class Claw : MonoBehaviour
         {
             if (!_holding)
             {
-                RaycastHit[] hits = Physics.RaycastAll(transform.position, Vector3.down, 25, GrabbingMask);
+                RaycastHit[] hits = Physics.RaycastAll(ClawObject.transform.position, -ClawObject.transform.up, 25, GrabbingMask);
                 if (hits.Length > 0)
                 {
                     TakeObject(hits[0].collider.gameObject);
@@ -78,6 +78,7 @@ public class Claw : MonoBehaviour
     private void TakeObject(GameObject GameObj)
     {
         HeldGO = GameObj;
+        //ClawObject.GetComponent<FixedJoint>().connectedBody = GameObj.GetComponent<Rigidbody>();
 
         HeldGO.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         HeldGO.transform.SetParent(HoldPos, true);
@@ -89,10 +90,13 @@ public class Claw : MonoBehaviour
 
     private void DropObject()
     {
+        //ClawObject.GetComponent<FixedJoint>().connectedBody = null;
+
         HeldGO.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
         HeldGO.transform.SetParent(null);
 
         _rb.velocity = Vector3.zero;
+        //ClawObject.SetActive(true);
         HeldGO = null;
         _holding = false;
     }
