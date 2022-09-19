@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 6456995700288965969}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6778306793129185515}
@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 6456995700288965970}
+  _renderer: {fileID: 5645911674420128644}
 --- !u!95 &6456995700288965970
 Animator:
   serializedVersion: 4
@@ -140,6 +141,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9acca9cc2e2f4da4e95af6399e131421, type: 3}
+--- !u!23 &5645911674420128644 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 9acca9cc2e2f4da4e95af6399e131421, type: 3}
+  m_PrefabInstance: {fileID: 6456995700317648640}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6778306793129185515 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9acca9cc2e2f4da4e95af6399e131421, type: 3}

@@ -5,6 +5,6 @@ using UnityEngine;
 public class RecipeData : ScriptableObject
 {
     public string Name;
-    public Sprite Icon;
+    public Texture Icon;
     public List<Ingredient.Type> Ingredients;
 }

@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: TomatoSandwich
   m_EditorClassIdentifier: 
   Name: Tomato Sandwich
+  Icon: {fileID: 2800000, guid: 0b6df8aa151dd2546b2c478fc9469584, type: 3}
   Ingredients: 020000000300000001000000

@@ -1,21 +1,74 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-public class OrderManager : MonoBehaviour
+public class OrderManager : Singleton<OrderManager>
 {
     [SerializeField] private GameObject _orderPrefab;
-    [SerializeField] private OrdersTray _ordersTray;
-    [SerializeField] private List<Order> _orders;
+    [SerializeField] private Dictionary<Order, GameObject> _ordersGo = new Dictionary<Order, GameObject>();
+    [SerializeField] private List<Order> _orders = new List<Order>();
     [SerializeField] private List<RecipeData> _recipeDatas;
     [SerializeField] private float _timeBetweenOrders;
     [SerializeField] private int _maxNumberOfOrders = 10;
+    [SerializeField] private int _timePerOrder = 10;
 
     private Coroutine _coroutine;
     // Start is called before the first frame update
+    private void OnEnable()
+    {
+        GameEvents.OnOrderExpired += OnOrderExpired;
+    }
+    
+    private void OnDisable()
+    {
+        GameEvents.OnOrderExpired -= OnOrderExpired;
+    }
+
     void Start()
     {
         _coroutine = StartCoroutine(SpawnOrder());
+    }
+
+    public void IngredientCollected(Ingredient ingredient)
+    {
+        if (_orders[0].CurrentIngredient() == ingredient.GetIngredientType())
+        {
+            _orders[0].NextIngredient();
+            if (_orders[0].IsDone())
+            {
+                Debug.Log("Order Done");
+                RemoveOrder(_orders[0]);
+            }
+        }
+        
+        Destroy(ingredient.gameObject);
+    }
+    
+    private void OnOrderExpired(Order order)
+    {
+        if (_ordersGo.Remove(order, out GameObject orderGo))
+        {
+            Destroy(orderGo);
+            OrdersTray.Instance.UpdateTray();
+        }
+    }
+
+    private void AddOrder(Order order, GameObject go)
+    {
+        _orders.Add(order);
+        _ordersGo.Add(order, go);
+    }
+    
+    private void RemoveOrder(Order order)
+    {
+        if (_ordersGo.Remove(order, out GameObject orderGo))
+        {
+            Destroy(orderGo);
+            _orders.Remove(order);
+            OrdersTray.Instance.UpdateTray();
+        }
     }
 
     IEnumerator SpawnOrder()
@@ -24,11 +77,11 @@ public class OrderManager : MonoBehaviour
         {
             if (_maxNumberOfOrders > _orders.Count)
             {
-                Transform orderSpawnPosition = _ordersTray.GetSpawnPosition();
+                Transform orderSpawnPosition = OrdersTray.Instance.GetSpawnPosition();
                 GameObject orderGo = Instantiate(_orderPrefab, orderSpawnPosition.transform.position, orderSpawnPosition.transform.rotation);
                 Order order = orderGo.GetComponent<Order>();
-                order.Init(_recipeDatas[0]);
-                bool orderAdded = _ordersTray.AddOrder(orderGo);
+                order.Init(_recipeDatas[0], _timePerOrder);
+                bool orderAdded = OrdersTray.Instance.AddOrder(orderGo);
 
                 if (!orderAdded)
                 {
@@ -36,7 +89,7 @@ public class OrderManager : MonoBehaviour
                 }
                 else
                 {
-                    _orders.Add(order);
+                   AddOrder(order, orderGo);
                 }
             }
             

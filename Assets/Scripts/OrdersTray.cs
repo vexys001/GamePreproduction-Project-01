@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OrdersTray : MonoBehaviour
+public class OrdersTray : Singleton<OrdersTray>
 {
     [SerializeField] private Transform _orderSpawnPosition;
     [SerializeField] private List<Transform> _ordersSocket;
     [SerializeField] private float _stoppingDistance;
     [SerializeField] private float _speed;
-
+    
     private int _currentNumberOfOrder = 0;
 
     public bool AddOrder(GameObject order)
@@ -57,5 +57,10 @@ public class OrdersTray : MonoBehaviour
                 yield return new WaitForEndOfFrame();
             }
         }
+    }
+
+    public void UpdateTray()
+    {
+        
     }
 }
