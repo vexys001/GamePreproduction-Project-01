@@ -21,8 +21,8 @@ public class Ingredient : MonoBehaviour
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
-        /*_rb.useGravity = false;
-        _rb.isKinematic = true;*/
+        _rb.useGravity = false;
+        _rb.isKinematic = true;
     }
 
     public Ingredient.Type GetIngredientType()
