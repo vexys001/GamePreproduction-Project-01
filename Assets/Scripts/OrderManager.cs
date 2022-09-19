@@ -20,7 +20,7 @@ public class OrderManager : Singleton<OrderManager>
     {
         GameEvents.OnOrderExpired += OnOrderExpired;
     }
-    
+
     private void OnDisable()
     {
         GameEvents.OnOrderExpired -= OnOrderExpired;
@@ -39,13 +39,27 @@ public class OrderManager : Singleton<OrderManager>
             if (_orders[0].IsDone())
             {
                 Debug.Log("Order Done");
+
+                if (_orders[0].StartTime <= _timePerOrder * 0.33f)
+                {
+                    ScoreManager.Instance.AddScore(1f);
+                }
+                else if (_orders[0].StartTime <= _timePerOrder * 0.66f)
+                {
+                    ScoreManager.Instance.AddScore(0.66f);
+                }
+                else
+                {
+                    ScoreManager.Instance.AddScore(0.33f);
+                }
+
                 RemoveOrder(_orders[0]);
             }
         }
-        
+
         Destroy(ingredient.gameObject);
     }
-    
+
     private void OnOrderExpired(Order order)
     {
         if (_ordersGo.Remove(order, out GameObject orderGo))
@@ -60,7 +74,7 @@ public class OrderManager : Singleton<OrderManager>
         _orders.Add(order);
         _ordersGo.Add(order, go);
     }
-    
+
     private void RemoveOrder(Order order)
     {
         if (_ordersGo.Remove(order, out GameObject orderGo))
@@ -89,10 +103,10 @@ public class OrderManager : Singleton<OrderManager>
                 }
                 else
                 {
-                   AddOrder(order, orderGo);
+                    AddOrder(order, orderGo);
                 }
             }
-            
+
             yield return new WaitForSecondsRealtime(_timeBetweenOrders);
         }
     }
