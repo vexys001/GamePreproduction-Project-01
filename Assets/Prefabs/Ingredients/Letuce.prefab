@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2236466378958335151}
   - component: {fileID: 2236466378958335150}
   - component: {fileID: 1999632608030729927}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Letuce
   m_TagString: Ingredient
   m_Icon: {fileID: 0}
