@@ -6,6 +6,7 @@ public class Claw : MonoBehaviour
 {
     private Rigidbody _rb;
     public GameObject ClawObject;
+    public Transform CameraTransform;
 
     [Header("Speeds")]
     public float acceleration = 5;
@@ -37,7 +38,18 @@ public class Claw : MonoBehaviour
         float hori = Input.GetAxisRaw("Horizontal");
         float vert = Input.GetAxisRaw("Vertical");
 
-        _rb.AddForce(new Vector3(hori, 0, vert) * acceleration * Time.deltaTime, ForceMode.Impulse);
+        Vector3 input = Quaternion.Euler(0, CameraTransform.rotation.eulerAngles.y, 0) * new Vector3(hori, 0, vert);
+
+        if (input.magnitude != 0)
+        {
+            _rb.AddForce(input * acceleration * Time.deltaTime, ForceMode.Impulse);
+        }
+        else
+        {
+            _rb.velocity = Vector3.Lerp(_rb.velocity, Vector3.zero, deccelerationRate * Time.deltaTime);
+        }
+
+
         //transform.Translate(new Vector3(hori, 0, vert) * acceleration * Time.deltaTime);
 
         if (Input.GetKeyDown(KeyCode.E))
@@ -71,8 +83,6 @@ public class Claw : MonoBehaviour
                 }*/
             }
         }
-
-
     }
 
     private void TakeObject(GameObject GameObj)
