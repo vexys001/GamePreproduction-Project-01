@@ -59,8 +59,12 @@ public class OrdersTray : Singleton<OrdersTray>
         }
     }
 
-    public void UpdateTray()
+    public void UpdateTray(List<GameObject> orders)
     {
-        
+        _currentNumberOfOrder = orders.Count;
+        for (int i = 0; i < orders.Count; i++)
+        {
+            StartCoroutine(MoveIntoPosition(_ordersSocket[i], orders[i]));
+        }
     }
 }

@@ -51,7 +51,7 @@ public class OrderManager : Singleton<OrderManager>
         if (_ordersGo.Remove(order, out GameObject orderGo))
         {
             Destroy(orderGo);
-            OrdersTray.Instance.UpdateTray();
+            OrdersTray.Instance.UpdateTray(_ordersGo.Values.ToList());
         }
     }
 
@@ -67,7 +67,7 @@ public class OrderManager : Singleton<OrderManager>
         {
             Destroy(orderGo);
             _orders.Remove(order);
-            OrdersTray.Instance.UpdateTray();
+            OrdersTray.Instance.UpdateTray(_ordersGo.Values.ToList());
         }
     }
 
