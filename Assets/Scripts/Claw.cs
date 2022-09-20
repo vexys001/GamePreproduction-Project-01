@@ -97,7 +97,10 @@ public class Claw : MonoBehaviour
 
         _rb.velocity = Vector3.zero;
         //ClawObject.SetActive(true);
+        HeldGO.GetComponent<Ingredient>().Fall();
         HeldGO = null;
+        
+        
         _holding = false;
     }
 
