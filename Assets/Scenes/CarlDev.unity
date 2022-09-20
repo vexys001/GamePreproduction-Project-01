@@ -1434,6 +1434,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1924082285079564470, guid: 035fd5387c5ba454894abbb82b906236, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2670803005288845753, guid: 035fd5387c5ba454894abbb82b906236, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5419899642718200983, guid: 035fd5387c5ba454894abbb82b906236, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6198248351618783509, guid: 035fd5387c5ba454894abbb82b906236, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6498248773866534261, guid: 035fd5387c5ba454894abbb82b906236, type: 3}
       propertyPath: m_Mass
       value: 25
@@ -1480,6 +1496,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8159399881443879846, guid: 035fd5387c5ba454894abbb82b906236, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8232383791435132927, guid: 035fd5387c5ba454894abbb82b906236, type: 3}
+      propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8554230748919312886, guid: 035fd5387c5ba454894abbb82b906236, type: 3}
