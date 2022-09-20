@@ -10,7 +10,7 @@ public class Order : MonoBehaviour
     [SerializeField] private Renderer _renderer;
     [SerializeField] private int _ingredientDone = 0;
 
-    private float _startTime = 0;
+    public float StartTime = 0;
     private float _timeToCompleteTheOrder;
     private MaterialPropertyBlock _propBlock;
     private RecipeData _recipeData;
@@ -27,8 +27,8 @@ public class Order : MonoBehaviour
 
     private void Update()
     {
-        _startTime += Time.deltaTime;
-        if (_startTime > _timeToCompleteTheOrder)
+        StartTime += Time.deltaTime;
+        if (StartTime > _timeToCompleteTheOrder)
         {
             GameEvents.OnOrderExpired?.Invoke(this);
         }
