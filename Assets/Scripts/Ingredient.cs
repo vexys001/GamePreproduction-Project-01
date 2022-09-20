@@ -35,6 +35,13 @@ public class Ingredient : MonoBehaviour
         _moveCoroutine = StartCoroutine(MoveOnConveyor(speed));
     }
 
+    public void StopMoving()
+    {
+        _rb.useGravity = false;
+        _rb.isKinematic = true;
+        StopCoroutine(_moveCoroutine);
+    }
+
     private IEnumerator MoveOnConveyor(float speed)
     {
         while (true)

@@ -94,7 +94,9 @@ public class Claw : MonoBehaviour
         HeldGO = GameObj;
         //ClawObject.GetComponent<FixedJoint>().connectedBody = GameObj.GetComponent<Rigidbody>();
 
-        HeldGO.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        //HeldGO.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        HeldGO.GetComponent<Ingredient>().StopMoving();
+
         HeldGO.transform.SetParent(HoldPos, true);
         HeldGO.transform.localPosition = Vector3.zero;
 
@@ -106,7 +108,9 @@ public class Claw : MonoBehaviour
     {
         //ClawObject.GetComponent<FixedJoint>().connectedBody = null;
 
-        HeldGO.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+        //HeldGO.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+        HeldGO.GetComponent<Ingredient>().Fall();
+
         HeldGO.transform.SetParent(null);
 
         _rb.velocity = Vector3.zero;
