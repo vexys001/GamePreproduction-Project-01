@@ -15,6 +15,8 @@ public class Claw : MonoBehaviour
 
     [Header("Item Holding")]
     public LayerMask GrabbingMask;
+    [SerializeField] private float _grabbingRadius = 0.5f;
+    [SerializeField] private float _grabbingLength = 7.5f;
     public Transform HoldPos;
     public GameObject HeldGO;
     [SerializeField] private bool _holding;
@@ -57,7 +59,7 @@ public class Claw : MonoBehaviour
             if (!_holding)
             {
                 //RaycastHit[] hits = Physics.RaycastAll(ClawObject.transform.position, -ClawObject.transform.up, 25, GrabbingMask);
-                RaycastHit[] hits = Physics.SphereCastAll(ClawObject.transform.position, 0.25f, -ClawObject.transform.up, 25, GrabbingMask);
+                RaycastHit[] hits = Physics.SphereCastAll(ClawObject.transform.position, _grabbingRadius, -ClawObject.transform.up, _grabbingLength, GrabbingMask);
 
                 if (hits.Length > 0)
                 {
