@@ -53,6 +53,5 @@ public class Ingredient : MonoBehaviour
         {
             StopCoroutine(_moveCoroutine);
         }
-        Destroy(gameObject, 2f);
     }
 }
