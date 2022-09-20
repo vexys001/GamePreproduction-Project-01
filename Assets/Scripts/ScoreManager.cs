@@ -7,13 +7,13 @@ public class ScoreManager : Singleton<ScoreManager>
 {
     public int MaxScorePerOrder = 15;
     [SerializeField] private int _score;
-    private TextMeshProUGUI _scoreText;
+    public TextMeshProUGUI ScoreText;
 
     // Start is called before the first frame update
     void Start()
     {
         _score = 0;
-        _scoreText = GameObject.Find("ScoreText").GetComponent<TextMeshProUGUI>();
+        //_scoreText = GameObject.Find("ScoreText").GetComponent<TextMeshProUGUI>();
         UpdateScoreUI();
     }
 
@@ -37,6 +37,6 @@ public class ScoreManager : Singleton<ScoreManager>
 
     private void UpdateScoreUI()
     {
-        _scoreText.SetText("Score: " + _score);
+        ScoreText.SetText("Score: " + _score);
     }
 }
