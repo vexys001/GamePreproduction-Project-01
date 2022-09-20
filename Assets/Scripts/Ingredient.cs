@@ -39,7 +39,10 @@ public class Ingredient : MonoBehaviour
     {
         _rb.useGravity = false;
         _rb.isKinematic = true;
-        StopCoroutine(_moveCoroutine);
+        if (_moveCoroutine != null)
+        {
+            StopCoroutine(_moveCoroutine);
+        }
     }
 
     private IEnumerator MoveOnConveyor(float speed)
