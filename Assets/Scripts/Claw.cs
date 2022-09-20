@@ -56,7 +56,9 @@ public class Claw : MonoBehaviour
         {
             if (!_holding)
             {
-                RaycastHit[] hits = Physics.RaycastAll(ClawObject.transform.position, -ClawObject.transform.up, 25, GrabbingMask);
+                //RaycastHit[] hits = Physics.RaycastAll(ClawObject.transform.position, -ClawObject.transform.up, 25, GrabbingMask);
+                RaycastHit[] hits = Physics.SphereCastAll(ClawObject.transform.position, 0.25f, -ClawObject.transform.up, 25, GrabbingMask);
+
                 if (hits.Length > 0)
                 {
                     TakeObject(hits[0].collider.gameObject);
@@ -109,8 +111,8 @@ public class Claw : MonoBehaviour
         //ClawObject.SetActive(true);
         HeldGO.GetComponent<Ingredient>().Fall();
         HeldGO = null;
-        
-        
+
+
         _holding = false;
     }
 
