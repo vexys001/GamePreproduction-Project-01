@@ -49,7 +49,10 @@ public class Ingredient : MonoBehaviour
     {
         _rb.useGravity = true;
         _rb.isKinematic = false;
-        StopCoroutine(_moveCoroutine);
+        if (_moveCoroutine != null)
+        {
+            StopCoroutine(_moveCoroutine);
+        }
         Destroy(gameObject, 2f);
     }
 }
