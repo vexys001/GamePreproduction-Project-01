@@ -8,6 +8,13 @@ public class Claw : MonoBehaviour
     public GameObject ClawObject;
     public Transform CameraTransform;
 
+    [Header("Camera")]
+    [SerializeField] private GameObject firstPersonCamera;
+    [SerializeField] private GameObject thirdPersonCamera;
+    private bool isFPCameraActive = false;
+
+
+
     [Header("Speeds")]
     public float Acceleration = 5;
     public float DeccelerationRate = 0.5f;
@@ -51,6 +58,7 @@ public class Claw : MonoBehaviour
                 DropObject();
             }
         }
+        SwapCamera();
     }
 
     private void Movement()
@@ -101,6 +109,33 @@ public class Claw : MonoBehaviour
         if (DEBUG)
         {
             Debug.DrawLine(ClawObject.transform.position, ClawObject.transform.position - ClawObject.transform.up * 20, Color.red, 0.1f);
+        }
+    }
+
+    private void SwapCamera()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            if(firstPersonCamera == null)
+            {
+                return;
+            }
+            isFPCameraActive = !isFPCameraActive;
+            CheckWhichCamisActive();            
+        }
+    }
+
+    private void CheckWhichCamisActive()
+    {
+        if (thirdPersonCamera.activeSelf)
+        {
+            thirdPersonCamera.SetActive(false);
+            firstPersonCamera.SetActive(true);
+        }
+        else
+        {
+            firstPersonCamera.SetActive(false);
+            thirdPersonCamera.SetActive(true);
         }
     }
 }
