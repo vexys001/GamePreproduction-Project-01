@@ -41,7 +41,7 @@ public class Claw : MonoBehaviour
     {
         Movement();
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             if (!_holding)
             {
@@ -57,7 +57,7 @@ public class Claw : MonoBehaviour
                 DropObject();
             }
         }
-        SwapCamera();
+        //SwapCamera();
     }
 
     private void Movement()
@@ -116,7 +116,7 @@ public class Claw : MonoBehaviour
         }
     }
 
-    private void SwapCamera()
+    /*private void SwapCamera()
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
@@ -128,6 +128,7 @@ public class Claw : MonoBehaviour
             CheckWhichCamisActive();            
         }
     }
+    
 
     private void CheckWhichCamisActive()
     {
@@ -142,4 +143,5 @@ public class Claw : MonoBehaviour
             thirdPersonCamera.SetActive(true);
         }
     }
+    */
 }
