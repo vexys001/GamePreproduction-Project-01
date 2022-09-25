@@ -97,6 +97,11 @@ public class Claw : MonoBehaviour
         SwapCamera();
     }
 
+    public GameObject GetHeldObject()
+    {
+        return HeldGO;
+    }
+
     private void TakeObject(GameObject GameObj)
     {
         HeldGO = GameObj;

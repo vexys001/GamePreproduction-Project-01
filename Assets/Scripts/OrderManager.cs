@@ -33,30 +33,34 @@ public class OrderManager : Singleton<OrderManager>
 
     public void IngredientCollected(Ingredient ingredient)
     {
-        if (_orders[0].CurrentIngredient() == ingredient.GetIngredientType())
+        //TODO check order[0] is updated
+        if (_orders.Count > 0)
         {
-            _orders[0].NextIngredient();
-            if (_orders[0].IsDone())
+            if (_orders[0].CurrentIngredient() == ingredient.GetIngredientType())
             {
-                Debug.Log("Order Done");
+                _orders[0].NextIngredient();
+                if (_orders[0].IsDone())
+                {
+                    Debug.Log("Order Done");
 
-                if (_orders[0].StartTime <= _timePerOrder * 0.33f)
-                {
-                    ScoreManager.Instance.AddScore(1f);
-                }
-                else if (_orders[0].StartTime <= _timePerOrder * 0.66f)
-                {
-                    ScoreManager.Instance.AddScore(0.66f);
-                }
-                else
-                {
-                    ScoreManager.Instance.AddScore(0.33f);
-                }
+                    if (_orders[0].StartTime <= _timePerOrder * 0.33f)
+                    {
+                        ScoreManager.Instance.AddScore(1f);
+                    }
+                    else if (_orders[0].StartTime <= _timePerOrder * 0.66f)
+                    {
+                        ScoreManager.Instance.AddScore(0.66f);
+                    }
+                    else
+                    {
+                        ScoreManager.Instance.AddScore(0.33f);
+                    }
 
-                RemoveOrder(_orders[0]);
+                    RemoveOrder(_orders[0]);
+                }
             }
         }
-
+        
         Destroy(ingredient.gameObject);
     }
 
