@@ -16,7 +16,7 @@ public class DeleteIngredient : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.rigidbody.gameObject.CompareTag("Ingredient") && _claw.GetHeldObject() != collision.rigidbody.gameObject)
+        if (collision.rigidbody.gameObject.CompareTag("Ingredient") && _claw != null && _claw.GetHeldObject() != collision.rigidbody.gameObject)
         {
             Destroy(collision.rigidbody.gameObject);
         }
