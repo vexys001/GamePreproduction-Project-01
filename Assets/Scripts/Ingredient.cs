@@ -12,7 +12,8 @@ public class Ingredient : MonoBehaviour
         LETUCE,
         BREAD,
         TOMATO,
-        CHEESE
+        CHEESE,
+        HAM
     }
 
     [SerializeField] private Type _type;
