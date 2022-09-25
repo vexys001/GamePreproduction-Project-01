@@ -38,6 +38,7 @@ public class OrderManager : Singleton<OrderManager>
         {
             if (_orders[0].CurrentIngredient() == ingredient.GetIngredientType())
             {
+                GameEvents.OnIngredientAddedToPot(ingredient);
                 _orders[0].NextIngredient();
                 if (_orders[0].IsDone())
                 {

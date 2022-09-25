@@ -477,6 +477,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1853332507}
     m_Modifications:
+    - target: {fileID: 3696608548253278457, guid: d89f503c1cc1a0f47a826b92c40fa458, type: 3}
+      propertyPath: m_text
+      value: Pot
+      objectReference: {fileID: 0}
+    - target: {fileID: 3696608548750264837, guid: d89f503c1cc1a0f47a826b92c40fa458, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3696608549357526138, guid: d89f503c1cc1a0f47a826b92c40fa458, type: 3}
       propertyPath: m_Name
       value: Hud
@@ -564,6 +572,14 @@ PrefabInstance:
     - target: {fileID: 3696608549357526139, guid: d89f503c1cc1a0f47a826b92c40fa458, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3696608549612322362, guid: d89f503c1cc1a0f47a826b92c40fa458, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3696608549686304741, guid: d89f503c1cc1a0f47a826b92c40fa458, type: 3}
+      propertyPath: m_text
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d89f503c1cc1a0f47a826b92c40fa458, type: 3}
@@ -2138,6 +2154,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &927269457 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3696608549697933361, guid: d89f503c1cc1a0f47a826b92c40fa458, type: 3}
+  m_PrefabInstance: {fileID: 216705276}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &927269461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 927269457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22096b677f164f948809f26cf771ed6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &998828071
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3117,6 +3150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e75da6a9ffe0ad479a62ec95014cbd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _ingredients: []
 --- !u!1 &1633719801
 GameObject:
   m_ObjectHideFlags: 0
