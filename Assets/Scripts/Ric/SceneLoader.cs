@@ -7,7 +7,7 @@ public class SceneLoader : MonoBehaviour
 {
     /*public enum ScenesEnum
     {
-        StartScreen,EndScreen,MovingCharacter
+        StartScreen,EndScreen,Level1
     }
     public static void Load(ScenesEnum scene)
     {
@@ -16,7 +16,7 @@ public class SceneLoader : MonoBehaviour
     */
     public void LoadGame()
     {
-        SceneManager.LoadScene("MovingCharacter");
+        SceneManager.LoadScene("Level1");
     }
 
     public void LoadStartScreen()
