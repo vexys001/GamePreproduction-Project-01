@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/CarlDev.unity
-    guid: 1283ef3b92a8ceb44a1db2a7fd25752e
+    path: Assets/Scenes/Ric/StartScreen.unity
+    guid: 39e39665367b57145b41f4b3c004feec
+  - enabled: 1
+    path: Assets/Scenes/Ric/MovingCharacter.unity
+    guid: 867cd8592f670b64fae682a5ae57737f
+  - enabled: 1
+    path: Assets/Scenes/Ric/EndScreen.unity
+    guid: 930d8ade28894764d869750b8c17a9e2
   m_configObjects: {}

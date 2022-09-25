@@ -3,7 +3,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Rigidbody), typeof(BoxCollider))]
 public class Ingredient : MonoBehaviour
 {
     public enum Type
@@ -11,7 +11,8 @@ public class Ingredient : MonoBehaviour
         NONE,
         LETUCE,
         BREAD,
-        TOMATO
+        TOMATO,
+        CHEESE
     }
 
     [SerializeField] private Type _type;
