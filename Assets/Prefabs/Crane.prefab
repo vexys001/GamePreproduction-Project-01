@@ -743,14 +743,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ClawObject: {fileID: 8554230748919312887}
-  acceleration: 125
-  deccelerationRate: 0.5
+  CameraTransform: {fileID: 0}
+  firstPersonCamera: {fileID: 0}
+  thirdPersonCamera: {fileID: 0}
+  Acceleration: 120
+  DeccelerationRate: 0.5
   ReturnSpeed: 15
   GrabbingMask:
     serializedVersion: 2
     m_Bits: 8
+  _grabbingRadius: 0.5
+  _grabbingLength: 7.5
   HoldPos: {fileID: 2816025073045411265}
-  HeldGO: {fileID: 0}
+  _heldGO: {fileID: 0}
   _holding: 0
-  DumpPos: {fileID: 0}
   DEBUG: 1
