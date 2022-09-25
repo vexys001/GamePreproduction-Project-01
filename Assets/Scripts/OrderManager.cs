@@ -38,7 +38,7 @@ public class OrderManager : Singleton<OrderManager>
         {
             if (_orders[0].CurrentIngredient() == ingredient.GetIngredientType())
             {
-                GameEvents.OnIngredientAddedToPot(ingredient);
+                GameEvents.OnIngredientAddedToPot?.Invoke(ingredient);
                 _orders[0].NextIngredient();
                 if (_orders[0].IsDone())
                 {
@@ -56,7 +56,7 @@ public class OrderManager : Singleton<OrderManager>
                     {
                         ScoreManager.Instance.AddScore(0.33f);
                     }
-
+                    GameEvents.OnOrderDone?.Invoke(_orders[0]);
                     RemoveOrder(_orders[0]);
                 }
             }

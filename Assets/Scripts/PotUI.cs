@@ -12,18 +12,29 @@ public class PotUI : MonoBehaviour
     private void OnEnable()
     {
         GameEvents.OnIngredientAddedToPot += OnIngredientAddedToPot;
+        GameEvents.OnOrderDone += OnOrderDone;
     }
 
     private void OnDisable()
     {
         GameEvents.OnIngredientAddedToPot -= OnIngredientAddedToPot;
+        GameEvents.OnOrderDone -= OnOrderDone;
+    }
+    
+    private void OnOrderDone(Order order)
+    {
+        foreach (TextMeshProUGUI ingredient in _ingredients)
+        {
+            ingredient.text = "";
+        }
     }
 
     private void OnIngredientAddedToPot(Ingredient ingredient)
     {
-        if (_ingredients.Count <= _currentIngredient)
+        if (_ingredients.Count > _currentIngredient)
         {
             _ingredients[_currentIngredient].text = ingredient.GetIngredientType().ToString();
+            _currentIngredient++;
         }
     }
 }
