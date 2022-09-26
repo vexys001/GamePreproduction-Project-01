@@ -38,10 +38,8 @@ public class PlayerController : MonoBehaviour
         }
         RaycastHit hit;
         Ray _forwardRay = new Ray(transform.position,transform.forward);
-        Debug.DrawRay(transform.position,transform.forward* _rayDistance);
         if (Physics.Raycast(_forwardRay, out hit, _rayDistance) && hit.collider.tag == "CraneConsole")
         {
-            Debug.Log("You are in range to the CraneControl");
             if(Input.GetKeyDown(KeyCode.E) && _claw != null)
             {
                 _characterIsUsingCrane = !_characterIsUsingCrane;

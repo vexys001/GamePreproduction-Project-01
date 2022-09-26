@@ -231,5 +231,5 @@ MonoBehaviour:
   _walkingSpeed: 7
   _rotationSpeed: 1
   _defaultYVelocity: -1
-  _rayDistance: 1
+  _rayDistance: 1.15
   _claw: {fileID: 0}
