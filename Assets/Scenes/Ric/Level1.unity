@@ -2419,6 +2419,8 @@ MonoBehaviour:
   _orders: []
   _recipeDatas:
   - {fileID: 11400000, guid: 1883efedc2b07a04cb9de90881cacbcb, type: 2}
+  - {fileID: 11400000, guid: d2cb9d8b2d1d0834890a0ff624cabff2, type: 2}
+  - {fileID: 11400000, guid: 54d3d35e734cd1447849985cc1c2385a, type: 2}
   _timeBetweenOrders: 60
   _maxNumberOfOrders: 10
   _timePerOrder: 180

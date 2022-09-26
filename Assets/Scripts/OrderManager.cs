@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class OrderManager : Singleton<OrderManager>
 {
@@ -99,7 +100,8 @@ public class OrderManager : Singleton<OrderManager>
                 Transform orderSpawnPosition = OrdersTray.Instance.GetSpawnPosition();
                 GameObject orderGo = Instantiate(_orderPrefab, orderSpawnPosition.transform.position, orderSpawnPosition.transform.rotation);
                 Order order = orderGo.GetComponent<Order>();
-                order.Init(_recipeDatas[0], _timePerOrder);
+                int index = Random.Range (0, _recipeDatas.Count);
+                order.Init(_recipeDatas[index], _timePerOrder);
                 bool orderAdded = OrdersTray.Instance.AddOrder(orderGo);
 
                 if (!orderAdded)
