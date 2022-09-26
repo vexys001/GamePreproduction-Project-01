@@ -38,12 +38,13 @@ public class PlayerController : MonoBehaviour
         }
         RaycastHit hit;
         Ray _forwardRay = new Ray(transform.position,transform.forward);
-        if (Physics.Raycast(_forwardRay, out hit, _rayDistance) && hit.collider.tag == "CraneConsole")
+        
+        if(Input.GetKeyDown(KeyCode.E) && _claw != null)
         {
-            if(Input.GetKeyDown(KeyCode.E) && _claw != null)
+            if (Physics.Raycast(_forwardRay, out hit, _rayDistance) && hit.collider.tag == "CraneConsole")
             {
                 _characterIsUsingCrane = !_characterIsUsingCrane;
-                if (!_characterIsUsingCrane)
+                if (_characterIsUsingCrane)
                 {
                     _walkingSpeed = 0;
                     _rotationSpeed = 0;
@@ -56,7 +57,7 @@ public class PlayerController : MonoBehaviour
                     _rotationSpeed = _defaultRotationSpeed;
                 }
             }
-        }        
+        }
     }
 
     private void Movement()

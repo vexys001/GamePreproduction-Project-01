@@ -1136,6 +1136,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3529203823267903128, guid: bd50bab2e7a6c9c44a833f504f2f29a7, type: 3}
+      propertyPath: m_Size.x
+      value: 3.1301208
+      objectReference: {fileID: 0}
+    - target: {fileID: 3529203823267903128, guid: bd50bab2e7a6c9c44a833f504f2f29a7, type: 3}
+      propertyPath: m_Size.z
+      value: 1.8495978
+      objectReference: {fileID: 0}
+    - target: {fileID: 3529203823267903128, guid: bd50bab2e7a6c9c44a833f504f2f29a7, type: 3}
+      propertyPath: m_Center.x
+      value: -0.053798337
+      objectReference: {fileID: 0}
+    - target: {fileID: 3529203823267903128, guid: bd50bab2e7a6c9c44a833f504f2f29a7, type: 3}
+      propertyPath: m_Center.z
+      value: 0.32211623
+      objectReference: {fileID: 0}
     - target: {fileID: 4756540619988642793, guid: bd50bab2e7a6c9c44a833f504f2f29a7, type: 3}
       propertyPath: m_Name
       value: ConsoleCrane
@@ -4181,7 +4197,7 @@ PrefabInstance:
       objectReference: {fileID: 1942279183}
     - target: {fileID: 4475930236282224647, guid: 921c0362f7ab3c342934c2cb74dea0ec, type: 3}
       propertyPath: _rayDistance
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4475930236282224647, guid: 921c0362f7ab3c342934c2cb74dea0ec, type: 3}
       propertyPath: _rotationSpeed
