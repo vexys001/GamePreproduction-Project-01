@@ -4,27 +4,58 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Movement Variables")]
     [SerializeField] private float _walkingSpeed = 10.0f;
+    [SerializeField] private float _rotationSpeed = 1f;
+    private float _defaultWalkingSpeed = 0f;
+    private float _defaultRotationSpeed = 0f;    
+
+    [Header("Other Variables")]
+    [SerializeField] private float _defaultYVelocity = -1.0f;
+    [SerializeField] private float _rayDistance = 0.5f;
+
     private Vector3 _moveDirection = Vector3.zero;
     private CharacterController _charController = null;
     private bool _characterIsMoving = false;
-    [SerializeField] private float _rotationSpeed = 1f;
+    private bool _characterIsUsingCrane = false;
+    [SerializeField] private Claw _claw = null;
 
-    [Header("Gravity Variables")]
-    [SerializeField] private float _defaultYVelocity = -1.0f;
 
 
     private void Awake()
     {
         _charController = GetComponent<CharacterController>();
+        _defaultWalkingSpeed = _walkingSpeed;
+        _defaultRotationSpeed = _rotationSpeed;
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         Movement();
         if (_characterIsMoving)
         {
             HandleRotation();
+        }
+        RaycastHit hit;
+        Ray _forwardRay = new Ray(transform.position,transform.forward);
+        if (Physics.Raycast(_forwardRay, out hit, _rayDistance) && hit.collider.tag == "CraneConsole")
+        {
+            if(Input.GetKeyDown(KeyCode.E) && _claw != null)
+            {
+                _characterIsUsingCrane = !_characterIsUsingCrane;
+                if (!_characterIsUsingCrane)
+                {
+                    _walkingSpeed = 0;
+                    _rotationSpeed = 0;
+                    _claw.enabled = true;
+                }
+                else 
+                {
+                    _claw.enabled = false;
+                    _walkingSpeed = _defaultWalkingSpeed;
+                    _rotationSpeed = _defaultRotationSpeed;
+                }
+            }
         }        
     }
 

@@ -28,8 +28,6 @@ public class Claw : MonoBehaviour
 
     [Header("DEBUG")]
     public bool DEBUG;
-
-    // Start is called before the first frame update
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
@@ -41,7 +39,7 @@ public class Claw : MonoBehaviour
     {
         Movement();
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             if (!_holding)
             {
@@ -118,7 +116,7 @@ public class Claw : MonoBehaviour
 
     private void SwapCamera()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             if(firstPersonCamera == null)
             {
@@ -128,6 +126,7 @@ public class Claw : MonoBehaviour
             CheckWhichCamisActive();            
         }
     }
+    
 
     private void CheckWhichCamisActive()
     {

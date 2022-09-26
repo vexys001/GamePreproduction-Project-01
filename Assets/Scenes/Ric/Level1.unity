@@ -2285,6 +2285,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 13400000, guid: 1d3c83826782ecb4b964e0de645e38a8, type: 2}
     - target: {fileID: 8554230749110127731, guid: 035fd5387c5ba454894abbb82b906236, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8554230749110127731, guid: 035fd5387c5ba454894abbb82b906236, type: 3}
       propertyPath: acceleration
       value: 125
       objectReference: {fileID: 0}
@@ -3721,6 +3725,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8159399881443879846, guid: 035fd5387c5ba454894abbb82b906236, type: 3}
   m_PrefabInstance: {fileID: 998828071}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1942279183 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8554230749110127731, guid: 035fd5387c5ba454894abbb82b906236, type: 3}
+  m_PrefabInstance: {fileID: 998828071}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a64996d9ff8bd0479c2fbd296b6376c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1963982402
 GameObject:
   m_ObjectHideFlags: 0
@@ -4058,6 +4073,14 @@ PrefabInstance:
     - target: {fileID: 4475930236282224644, guid: 921c0362f7ab3c342934c2cb74dea0ec, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4475930236282224647, guid: 921c0362f7ab3c342934c2cb74dea0ec, type: 3}
+      propertyPath: _claw
+      value: 
+      objectReference: {fileID: 1942279183}
+    - target: {fileID: 4475930236282224647, guid: 921c0362f7ab3c342934c2cb74dea0ec, type: 3}
+      propertyPath: _rayDistance
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4475930236282224647, guid: 921c0362f7ab3c342934c2cb74dea0ec, type: 3}
       propertyPath: _rotationSpeed
