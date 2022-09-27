@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using TMPro;
 using UnityEngine;
 
 public class Order : MonoBehaviour
@@ -9,6 +10,7 @@ public class Order : MonoBehaviour
     [SerializeField] private Animator _animator;
     [SerializeField] private Renderer _renderer;
     [SerializeField] private int _ingredientDone = 0;
+    [SerializeField] private TextMeshPro _orderTimerText;
 
     public float StartTime = 0;
     private float _timeToCompleteTheOrder;
@@ -23,11 +25,13 @@ public class Order : MonoBehaviour
         _renderer.GetPropertyBlock(_propBlock);
         _propBlock.SetTexture("_MainTex", recipeData.Icon);
         _renderer.SetPropertyBlock(_propBlock);
+        _orderTimerText.text = ((int)_timeToCompleteTheOrder).ToString();
     }
 
     private void Update()
     {
         StartTime += Time.deltaTime;
+        _orderTimerText.text = ((int)_timeToCompleteTheOrder - (int)StartTime).ToString();
         if (StartTime > _timeToCompleteTheOrder)
         {
             GameEvents.OnOrderExpired?.Invoke(this);
