@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class OrderManager : Singleton<OrderManager>
@@ -14,6 +15,7 @@ public class OrderManager : Singleton<OrderManager>
     [SerializeField] private float _timeBetweenOrders;
     [SerializeField] private int _maxNumberOfOrders = 10;
     [SerializeField] private int _timePerOrder = 10;
+    [SerializeField] private int _timeGainedPerOrder = 20;
 
     private Coroutine _coroutine;
     // Start is called before the first frame update
@@ -48,14 +50,17 @@ public class OrderManager : Singleton<OrderManager>
                     if (_orders[0].StartTime <= _timePerOrder * 0.33f)
                     {
                         ScoreManager.Instance.AddScore(1f);
+                        CountdownManager.Instance.AddTime(_timeGainedPerOrder);
                     }
                     else if (_orders[0].StartTime <= _timePerOrder * 0.66f)
                     {
                         ScoreManager.Instance.AddScore(0.66f);
+                        CountdownManager.Instance.AddTime(_timeGainedPerOrder);
                     }
                     else
                     {
                         ScoreManager.Instance.AddScore(0.33f);
+                        CountdownManager.Instance.AddTime(_timeGainedPerOrder);
                     }
                     GameEvents.OnOrderDone?.Invoke(_orders[0]);
                     RemoveOrder(_orders[0]);
@@ -116,5 +121,10 @@ public class OrderManager : Singleton<OrderManager>
 
             yield return new WaitForSecondsRealtime(_timeBetweenOrders);
         }
+    }
+
+    public void GameTimeExpired()
+    {
+        SceneManager.LoadScene("EndScreen");
     }
 }

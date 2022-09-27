@@ -15,6 +15,7 @@ public class Singleton<T> : MonoBehaviour where T : Component
                 {
                     T instance = objs[0];
                     _instance = instance;
+                    DontDestroyOnLoad(_instance.gameObject);
                 }
                 else
                 {

@@ -23,15 +23,21 @@ public class CountdownManager : Singleton<CountdownManager>
         if (Active)
         {
             _timer -= Time.deltaTime;
-            TimeLeftText.text = "Time Left: " + Mathf.Floor(_timer);
             if (_timer <= 0)
             {
                 //Call Other Function
                 _timer = 0;
-
                 StopCountdown();
+                OrderManager.Instance.GameTimeExpired();
             }
+            TimeLeftText.text = "Time Left: " + Mathf.Floor(_timer);
         }
+    }
+
+    public void AddTime(float time)
+    {
+        _timer += time;
+        TimeLeftText.text = "Time Left: " + Mathf.Floor(_timer);
     }
 
     public void StartCountdown()

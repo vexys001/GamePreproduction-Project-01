@@ -2278,11 +2278,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &878702798 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3230249484422152074, guid: 2f90c1f468aad5d48a66ac6cf2c2f57c, type: 3}
-  m_PrefabInstance: {fileID: 1847143884}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &927269457 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3696608549697933361, guid: d89f503c1cc1a0f47a826b92c40fa458, type: 3}
@@ -2485,9 +2480,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ecdf5ce709f37e4199a8f8792441c39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxTimer: 100
+  _maxTimer: 10
   _timer: 0
-  Active: 0
+  Active: 1
   TimeLeftText: {fileID: 1318383463}
 --- !u!4 &1069121512
 Transform:
@@ -2562,6 +2557,7 @@ MonoBehaviour:
   _timeBetweenOrders: 60
   _maxNumberOfOrders: 10
   _timePerOrder: 180
+  _timeGainedPerOrder: 20
 --- !u!1001 &1151723216
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2658,9 +2654,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _autoSpawn: 1
-  _autoSpawnTimer: 0
+  _autoSpawnTimer: 10
   _startPoint: {fileID: 1170304149}
-  _conveyorSpeed: 1
+  _conveyorSpeed: 0.5
   _ingredientsPrefab:
   - {fileID: -5711085891529466462, guid: f5e20aeef47b4cd4290b9839aac7ad21, type: 3}
   - {fileID: 2236466378958335150, guid: e00a1f60288d02e4a893d9454a472fe7, type: 3}
@@ -2823,28 +2819,12 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2868788054306417244, guid: 2f90c1f468aad5d48a66ac6cf2c2f57c, type: 3}
   m_PrefabInstance: {fileID: 1847143884}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 878702798}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1318383466
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 878702798}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ecdf5ce709f37e4199a8f8792441c39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxTimer: 100
-  _timer: 100
-  Active: 1
-  TimeLeftText: {fileID: 1318383463}
 --- !u!1 &1340878826
 GameObject:
   m_ObjectHideFlags: 0
