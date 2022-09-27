@@ -23,7 +23,7 @@ public class CountdownManager : Singleton<CountdownManager>
         if (Active)
         {
             _timer -= Time.deltaTime;
-
+            TimeLeftText.text = "Time Left: " + Mathf.Floor(_timer);
             if (_timer <= 0)
             {
                 //Call Other Function
@@ -32,11 +32,6 @@ public class CountdownManager : Singleton<CountdownManager>
                 StopCountdown();
             }
         }
-    }
-
-    private void LateUpdate()
-    {
-        TimeLeftText.text = "Time Left: " + Mathf.Floor(_timer);
     }
 
     public void StartCountdown()
