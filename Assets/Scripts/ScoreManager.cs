@@ -44,4 +44,9 @@ public class ScoreManager : Singleton<ScoreManager>
     {
         ScoreText.SetText("Score: " + _score);
     }
+
+    public int GetScore()
+    {
+        return _score;
+    }
 }

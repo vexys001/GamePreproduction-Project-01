@@ -2558,6 +2558,7 @@ MonoBehaviour:
   _maxNumberOfOrders: 10
   _timePerOrder: 180
   _timeGainedPerOrder: 20
+  _maxScore: 15
   _ordersTray: {fileID: 423565954}
 --- !u!1001 &1151723216
 PrefabInstance:

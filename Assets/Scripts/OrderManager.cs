@@ -16,6 +16,7 @@ public class OrderManager : MonoBehaviour
     [SerializeField] private int _maxNumberOfOrders = 10;
     [SerializeField] private int _timePerOrder = 10;
     [SerializeField] private int _timeGainedPerOrder = 20;
+    [SerializeField] private int _maxScore = 15;
     [SerializeField] private OrdersTray _ordersTray;
 
     private Coroutine _coroutine;
@@ -24,14 +25,14 @@ public class OrderManager : MonoBehaviour
     {
         GameEvents.OnOrderExpired += OnOrderExpired;
         GameEvents.OnIngredientAddedToPot += IngredientCollected;
-        GameEvents.OnTimerEnded += GameTimeExpired;
+        GameEvents.OnTimerEnded += EndGame;
     }
 
     private void OnDisable()
     {
         GameEvents.OnOrderExpired -= OnOrderExpired;
         GameEvents.OnIngredientAddedToPot -= IngredientCollected;
-        GameEvents.OnTimerEnded -= GameTimeExpired;
+        GameEvents.OnTimerEnded -= EndGame;
     }
 
     void Start()
@@ -73,6 +74,12 @@ public class OrderManager : MonoBehaviour
         }
         
         Destroy(ingredient.gameObject);
+
+        if (ScoreManager.Instance.GetScore() >= _maxScore)
+        {
+            CountdownManager.Instance.StopCountdown();
+            EndGame();
+        }
     }
 
     private void OnOrderExpired(Order order)
@@ -127,7 +134,7 @@ public class OrderManager : MonoBehaviour
         }
     }
 
-    public void GameTimeExpired()
+    public void EndGame()
     {
         SceneManager.LoadScene("EndScreen");
     }
