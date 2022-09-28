@@ -25,7 +25,7 @@ public class ScoreManager : Singleton<ScoreManager>
     public void AddScore(float mult)
     {
         _score += Mathf.FloorToInt(MaxScorePerOrder * mult);
-        if(_score >= 100)
+        if (_score >= 100)
         {
             CountdownManager.Instance.StopCountdown();
         }
@@ -40,7 +40,10 @@ public class ScoreManager : Singleton<ScoreManager>
 
     private void UpdateScoreUI()
     {
-        ScoreText.SetText("Score: " + _score);
+        if (ScoreText != null)
+        {
+            ScoreText.SetText("Score: " + _score);
+        }
     }
 
     public int GetScore()
