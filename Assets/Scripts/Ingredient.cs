@@ -9,7 +9,7 @@ public class Ingredient : MonoBehaviour
     public enum Type
     {
         NONE,
-        LETUCE,
+        LETTUCE,
         BREAD,
         TOMATO,
         CHEESE,
