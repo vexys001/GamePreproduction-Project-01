@@ -2482,7 +2482,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxTimer: 180
   _timer: 0
-  Active: 1
+  Active: 0
   TimeLeftText: {fileID: 1318383463}
 --- !u!4 &1069121512
 Transform:

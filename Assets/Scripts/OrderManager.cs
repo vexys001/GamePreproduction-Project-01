@@ -38,6 +38,7 @@ public class OrderManager : MonoBehaviour
     void Start()
     {
         _coroutine = StartCoroutine(SpawnOrder());
+        CountdownManager.Instance.StartCountdown();
     }
 
     public void IngredientCollected(Ingredient ingredient)
