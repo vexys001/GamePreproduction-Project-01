@@ -13,12 +13,14 @@ public class PotUI : MonoBehaviour
     {
         GameEvents.OnIngredientAddedToPot += OnIngredientAddedToPot;
         GameEvents.OnOrderDone += OnOrderDone;
+        GameEvents.OnOrderExpired += OnOrderDone;
     }
 
     private void OnDisable()
     {
         GameEvents.OnIngredientAddedToPot -= OnIngredientAddedToPot;
         GameEvents.OnOrderDone -= OnOrderDone;
+        GameEvents.OnOrderExpired -= OnOrderDone;
     }
     
     private void OnOrderDone(Order order)
@@ -27,6 +29,8 @@ public class PotUI : MonoBehaviour
         {
             ingredient.text = "";
         }
+
+        _currentIngredient = 0;
     }
 
     private void OnIngredientAddedToPot(Ingredient ingredient)
