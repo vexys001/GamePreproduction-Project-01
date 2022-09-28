@@ -9,8 +9,8 @@ public class Claw : MonoBehaviour
     public Transform CameraTransform;
 
     [Header("Camera")]
-    [SerializeField] private GameObject firstPersonCamera;
-    [SerializeField] private GameObject thirdPersonCamera;
+    public GameObject firstPersonCamera;
+    public GameObject thirdPersonCamera;
     private bool isFPCameraActive = false;
 
     [Header("Speeds")]

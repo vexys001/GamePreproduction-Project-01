@@ -53,6 +53,8 @@ public class PlayerController : MonoBehaviour
                 else 
                 {
                     _claw.enabled = false;
+                    _claw.firstPersonCamera.SetActive(false);
+                    _claw.thirdPersonCamera.SetActive(true);
                     _walkingSpeed = _defaultWalkingSpeed;
                     _rotationSpeed = _defaultRotationSpeed;
                 }
