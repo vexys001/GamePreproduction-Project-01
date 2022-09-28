@@ -10,6 +10,12 @@ public class CountdownManager : Singleton<CountdownManager>
 
     public bool Active = false;
     public TextMeshProUGUI TimeLeftText;
+    
+    private void Awake()
+    {
+        _instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +34,7 @@ public class CountdownManager : Singleton<CountdownManager>
                 //Call Other Function
                 _timer = 0;
                 StopCountdown();
-                OrderManager.Instance.GameTimeExpired();
+                GameEvents.OnTimerEnded();
             }
             TimeLeftText.text = "Time Left: " + Mathf.Floor(_timer);
         }

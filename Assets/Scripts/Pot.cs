@@ -11,7 +11,7 @@ public class Pot : MonoBehaviour
         {
             Ingredient ingredient = other.GetComponent<Ingredient>();
             _ingredients.Add(ingredient);
-            OrderManager.Instance.IngredientCollected(ingredient);
+            GameEvents.OnIngredientAddedToPot(ingredient);
         }
     }
 }

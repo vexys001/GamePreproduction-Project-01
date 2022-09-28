@@ -9,6 +9,11 @@ public class ScoreManager : Singleton<ScoreManager>
     [SerializeField] private int _score;
     public TextMeshProUGUI ScoreText;
 
+    private void Awake()
+    {
+        _instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
     // Start is called before the first frame update
     void Start()
     {

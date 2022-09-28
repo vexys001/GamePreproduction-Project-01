@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
-public class OrderManager : Singleton<OrderManager>
+public class OrderManager : MonoBehaviour
 {
     [SerializeField] private GameObject _orderPrefab;
     [SerializeField] private Dictionary<Order, GameObject> _ordersGo = new Dictionary<Order, GameObject>();
@@ -16,17 +16,22 @@ public class OrderManager : Singleton<OrderManager>
     [SerializeField] private int _maxNumberOfOrders = 10;
     [SerializeField] private int _timePerOrder = 10;
     [SerializeField] private int _timeGainedPerOrder = 20;
+    [SerializeField] private OrdersTray _ordersTray;
 
     private Coroutine _coroutine;
     // Start is called before the first frame update
     private void OnEnable()
     {
         GameEvents.OnOrderExpired += OnOrderExpired;
+        GameEvents.OnIngredientAddedToPot += IngredientCollected;
+        GameEvents.OnTimerEnded += GameTimeExpired;
     }
 
     private void OnDisable()
     {
         GameEvents.OnOrderExpired -= OnOrderExpired;
+        GameEvents.OnIngredientAddedToPot -= IngredientCollected;
+        GameEvents.OnTimerEnded -= GameTimeExpired;
     }
 
     void Start()
@@ -41,7 +46,6 @@ public class OrderManager : Singleton<OrderManager>
         {
             if (_orders[0].CurrentIngredient() == ingredient.GetIngredientType())
             {
-                GameEvents.OnIngredientAddedToPot?.Invoke(ingredient);
                 _orders[0].NextIngredient();
                 if (_orders[0].IsDone())
                 {
@@ -76,7 +80,7 @@ public class OrderManager : Singleton<OrderManager>
         if (_ordersGo.Remove(order, out GameObject orderGo))
         {
             Destroy(orderGo);
-            OrdersTray.Instance.UpdateTray(_ordersGo.Values.ToList());
+            _ordersTray.UpdateTray(_ordersGo.Values.ToList());
         }
     }
 
@@ -92,7 +96,7 @@ public class OrderManager : Singleton<OrderManager>
         {
             Destroy(orderGo);
             _orders.Remove(order);
-            OrdersTray.Instance.UpdateTray(_ordersGo.Values.ToList());
+            _ordersTray.UpdateTray(_ordersGo.Values.ToList());
         }
     }
 
@@ -102,12 +106,12 @@ public class OrderManager : Singleton<OrderManager>
         {
             if (_maxNumberOfOrders > _orders.Count)
             {
-                Transform orderSpawnPosition = OrdersTray.Instance.GetSpawnPosition();
+                Transform orderSpawnPosition = _ordersTray.GetSpawnPosition();
                 GameObject orderGo = Instantiate(_orderPrefab, orderSpawnPosition.transform.position, orderSpawnPosition.transform.rotation);
                 Order order = orderGo.GetComponent<Order>();
                 int index = Random.Range (0, _recipeDatas.Count);
                 order.Init(_recipeDatas[index], _timePerOrder);
-                bool orderAdded = OrdersTray.Instance.AddOrder(orderGo);
+                bool orderAdded = _ordersTray.AddOrder(orderGo);
 
                 if (!orderAdded)
                 {

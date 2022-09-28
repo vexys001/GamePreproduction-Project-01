@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OrdersTray : Singleton<OrdersTray>
+public class OrdersTray : MonoBehaviour
 {
     [SerializeField] private Transform _orderSpawnPosition;
     [SerializeField] private List<Transform> _ordersSocket;
