@@ -295,7 +295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb9886ee43149ee4ebc81901a2112c9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxScorePerOrder: 15
+  MaxScorePerOrder: 30
   _score: 0
   ScoreText: {fileID: 1681848327}
 --- !u!4 &140115234
@@ -2480,7 +2480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ecdf5ce709f37e4199a8f8792441c39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxTimer: 100
+  _maxTimer: 180
   _timer: 0
   Active: 1
   TimeLeftText: {fileID: 1318383463}
@@ -2558,7 +2558,7 @@ MonoBehaviour:
   _maxNumberOfOrders: 10
   _timePerOrder: 180
   _timeGainedPerOrder: 20
-  _maxScore: 15
+  _maxScore: 100
   _ordersTray: {fileID: 423565954}
 --- !u!1001 &1151723216
 PrefabInstance:
