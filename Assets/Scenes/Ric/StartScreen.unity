@@ -223,7 +223,7 @@ MonoBehaviour:
     with the crane control\r\nQ - to grab ingredients while controlling the crane\r\nSpace
     bar - to swap between first and third person camera view while controlling the
     crane\r\n\r\nGoal\r\nYou must complete the recipes that are coming in \r\nAdd
-    ingredient to the pot in the order of the recip"
+    ingredient to the pot in the order of the recipe."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
