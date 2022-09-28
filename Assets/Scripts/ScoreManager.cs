@@ -22,15 +22,13 @@ public class ScoreManager : Singleton<ScoreManager>
         UpdateScoreUI();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void AddScore(float mult)
     {
         _score += Mathf.FloorToInt(MaxScorePerOrder * mult);
+        if(_score >= 100)
+        {
+            CountdownManager.Instance.StopCountdown();
+        }
         UpdateScoreUI();
     }
 

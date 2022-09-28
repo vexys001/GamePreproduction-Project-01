@@ -40,6 +40,11 @@ public class CountdownManager : Singleton<CountdownManager>
         }
     }
 
+    public float GetTime()
+    {
+        return (_maxTimer - _timer);
+    }
+
     public void AddTime(float time)
     {
         _timer += time;
@@ -54,6 +59,7 @@ public class CountdownManager : Singleton<CountdownManager>
     public void StopCountdown()
     {
         Active = false;
+        //GameEvents.OnTimerEnded();
     }
 
     public void ResetCountdown()

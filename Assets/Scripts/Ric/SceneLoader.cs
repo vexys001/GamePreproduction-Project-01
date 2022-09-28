@@ -19,6 +19,13 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene("Level1");
     }
 
+    public void RetryGame()
+    {
+        ScoreManager.Instance.ResetScore();
+        CountdownManager.Instance.ResetCountdown();
+        LoadGame();
+    }
+
     public void LoadStartScreen()
     {
         SceneManager.LoadScene("StartScreen");
