@@ -13,6 +13,6 @@ public class EndScreenManager : MonoBehaviour
     void Start()
     {
         ScoreText.text = "" + ScoreManager.Instance.GetScore();
-        TimeText.text = "" + TimeSpan.FromSeconds(CountdownManager.Instance.GetTime()).ToString("hh:mm");
+        TimeText.text = "" + TimeSpan.FromSeconds(CountdownManager.Instance.GetTime()).ToString(@"mm\:ss");
     }
 }
