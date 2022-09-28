@@ -183,10 +183,13 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Controls :
 
-    E - to interact with the crane control
+    WASD - to move the character and the crane
 
-    Q - to grab
-    ingredient while controlling the Crane'
+    E - to
+    interact with the crane control
+
+    Q - to grab ingredients while controlling
+    the crane'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
