@@ -47,6 +47,11 @@ public class Order : MonoBehaviour
     {
         return _recipeData.Ingredients[_ingredientDone].Type;
     }
+    
+    public bool GetIsCut()
+    {
+        return _recipeData.Ingredients[_ingredientDone].IsCut;
+    }
 
     public void NextIngredient()
     {

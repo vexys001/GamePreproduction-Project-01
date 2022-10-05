@@ -6,10 +6,10 @@ using UnityEngine;
 
 public class CutCommand : Command
 {
-    [SerializeField]
+    [SerializeField] private CuttingBoard _twitchCuttingBoard;
     protected override void Execute(ChatMessage message, string[] arguments)
     {
-        throw new System.NotImplementedException();
+        _twitchCuttingBoard.Use();
     }
 
     protected override bool Validate(ChatMessage message, string[] arguments)

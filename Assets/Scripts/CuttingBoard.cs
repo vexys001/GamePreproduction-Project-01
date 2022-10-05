@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using ComponentHolderProtocol = Unity.VisualScripting.ComponentHolderProtocol;
 
@@ -8,6 +9,24 @@ public class CuttingBoard : MonoBehaviour
     private GameObject _ingredientGO;
     private GameObject _cutIngredientGO;
     private Ingredient _ingredient;
+
+    [Header("Materials")] 
+    [SerializeField] private bool _isTwitch;
+    [SerializeField] private MeshRenderer _renderer;
+    [SerializeField] private Color _purpleColor;
+    
+    private MaterialPropertyBlock _propertyBlock;
+
+    private void Start()
+    {
+        if (_isTwitch)
+        {
+            _propertyBlock = new MaterialPropertyBlock();
+            _renderer.GetPropertyBlock(_propertyBlock, 0);
+            _propertyBlock.SetColor("_Color", _purpleColor);
+            _renderer.SetPropertyBlock(_propertyBlock, 0);
+        }
+    }
 
     public void Use()
     {

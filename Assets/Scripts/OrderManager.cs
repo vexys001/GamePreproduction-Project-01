@@ -46,7 +46,7 @@ public class OrderManager : MonoBehaviour
         //TODO check order[0] is updated
         if (_orders.Count > 0)
         {
-            if (_orders[0].CurrentIngredient() == ingredient.GetIngredientType())
+            if (_orders[0].CurrentIngredient() == ingredient.GetIngredientType() && _orders[0].GetIsCut() == ingredient.GetIsCut())
             {
                 _orders[0].NextIngredient();
                 if (_orders[0].IsDone())

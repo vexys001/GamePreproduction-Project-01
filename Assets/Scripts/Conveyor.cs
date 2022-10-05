@@ -15,6 +15,11 @@ public class Conveyor : MonoBehaviour
     [Header("Items")] 
     [SerializeField] private List<Ingredient> _ingredientsPrefab;
 
+    [Header("Materials")] 
+    [SerializeField] private MeshRenderer _renderer;
+    [SerializeField] private Color _purpleColor;
+
+    private MaterialPropertyBlock _propertyBlock;
     private Random _random;
     private Coroutine _spawnCoroutine;
 
@@ -36,10 +41,18 @@ public class Conveyor : MonoBehaviour
 
     private void Start()
     {
+        _propertyBlock = new MaterialPropertyBlock();
+        
         _random = new Random();
         if (_autoSpawn)
         {
             _spawnCoroutine = StartCoroutine(SpawnIngredientLoop());
+        }
+        else
+        {
+            _renderer.GetPropertyBlock(_propertyBlock, 0);
+            _propertyBlock.SetColor("_Color", _purpleColor);
+            _renderer.SetPropertyBlock(_propertyBlock, 0);
         }
     }
 

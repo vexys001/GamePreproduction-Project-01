@@ -34,6 +34,11 @@ public class Ingredient : MonoBehaviour
         return _type;
     }
 
+    public bool GetIsCut()
+    {
+        return _isCut;
+    }
+
     public void SetIngredientType(Ingredient.Type type)
     {
         _type = type;
