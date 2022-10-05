@@ -115,6 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _cutMesh: {fileID: 6407418585212457178, guid: 18e3763d869f1a7468e8f1e202d58ead, type: 3}
 --- !u!65 &-5194264342399856768
 BoxCollider:
   m_ObjectHideFlags: 0

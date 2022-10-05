@@ -130,3 +130,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 5
+  _cutMesh: {fileID: 6407418585212457178, guid: 18e3763d869f1a7468e8f1e202d58ead, type: 3}

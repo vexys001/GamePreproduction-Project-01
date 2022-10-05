@@ -45,7 +45,7 @@ public class Order : MonoBehaviour
 
     public Ingredient.Type CurrentIngredient()
     {
-        return _recipeData.Ingredients[_ingredientDone];
+        return _recipeData.Ingredients[_ingredientDone].Type;
     }
 
     public void NextIngredient()

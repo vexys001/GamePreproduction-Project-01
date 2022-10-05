@@ -17,7 +17,9 @@ public class Ingredient : MonoBehaviour
     }
 
     [SerializeField] private Type _type;
+    [SerializeField] private bool _isCut;
     private Rigidbody _rb;
+    private MeshFilter _mesh;
     private Coroutine _moveCoroutine;
 
     private void Start()
@@ -30,6 +32,11 @@ public class Ingredient : MonoBehaviour
     public Ingredient.Type GetIngredientType()
     {
         return _type;
+    }
+
+    public void SetIngredientType(Ingredient.Type type)
+    {
+        _type = type;
     }
 
     public void StartMoving(float speed)

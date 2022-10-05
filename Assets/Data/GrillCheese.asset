@@ -14,4 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Grill Cheese
   Icon: {fileID: 2800000, guid: 02eba9e689b694444a0af68da0866503, type: 3}
-  Ingredients: 0200000004000000
+  Ingredients:
+  - Type: 2
+    IsCut: 0
+  - Type: 4
+    IsCut: 1

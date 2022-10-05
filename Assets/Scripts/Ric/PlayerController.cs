@@ -12,7 +12,9 @@ public class PlayerController : MonoBehaviour
 
     [Header("Other Variables")]
     [SerializeField] private float _defaultYVelocity = -1.0f;
+    [SerializeField] private Transform _raycastStartPosition;
     [SerializeField] private float _rayDistance = 0.5f;
+    [SerializeField] private LayerMask _interactableLayer;
 
     private Vector3 _moveDirection = Vector3.zero;
     private CharacterController _charController = null;
@@ -37,26 +39,41 @@ public class PlayerController : MonoBehaviour
             HandleRotation();
         }
         RaycastHit hit;
-        Ray _forwardRay = new Ray(transform.position,transform.forward);
+        Ray _forwardRay = new Ray(_raycastStartPosition.position,transform.forward);
         
-        if(Input.GetKeyDown(KeyCode.E) && _claw != null)
+        if(Input.GetKeyDown(KeyCode.E))
         {
-            if (Physics.Raycast(_forwardRay, out hit, _rayDistance) && hit.collider.tag == "CraneConsole")
+            bool hasHit = Physics.Raycast(_forwardRay, out hit, _rayDistance, _interactableLayer);
+            if (hasHit)
             {
-                _characterIsUsingCrane = !_characterIsUsingCrane;
-                if (_characterIsUsingCrane)
+                if(hit.collider.tag == "CuttingBoard")
                 {
-                    _walkingSpeed = 0;
-                    _rotationSpeed = 0;
-                    _claw.enabled = true;
+                    CuttingBoard cuttingBoard = hit.collider.gameObject.GetComponent<CuttingBoard>();
+                    if (cuttingBoard != null)
+                    {
+                        cuttingBoard.Use();
+                    }
                 }
-                else 
+                else if (_claw != null)
                 {
-                    _claw.enabled = false;
-                    _claw.firstPersonCamera.SetActive(false);
-                    _claw.thirdPersonCamera.SetActive(true);
-                    _walkingSpeed = _defaultWalkingSpeed;
-                    _rotationSpeed = _defaultRotationSpeed;
+                    if (hit.collider.tag == "CraneConsole")
+                    {
+                        _characterIsUsingCrane = !_characterIsUsingCrane;
+                        if (_characterIsUsingCrane)
+                        {
+                            _walkingSpeed = 0;
+                            _rotationSpeed = 0;
+                            _claw.enabled = true;
+                        }
+                        else 
+                        {
+                            _claw.enabled = false;
+                            _claw.firstPersonCamera.SetActive(false);
+                            _claw.thirdPersonCamera.SetActive(true);
+                            _walkingSpeed = _defaultWalkingSpeed;
+                            _rotationSpeed = _defaultRotationSpeed;
+                        }
+                    }
                 }
             }
         }

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2471552907723585008}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: IngredientPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,9 +44,9 @@ GameObject:
   - component: {fileID: 7220803276580130560}
   - component: {fileID: 1232513756820693297}
   - component: {fileID: 3746923809803186622}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CuttingBoard
-  m_TagString: Untagged
+  m_TagString: CuttingBoard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -128,8 +128,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.02, y: 0.010278214, z: 0.012842917}
-  m_Center: {x: 0, y: 0.0048320787, z: -0.00065609097}
+  m_Size: {x: 1.5315673, y: 1, z: 1.0956498}
+  m_Center: {x: 0.018111343, y: 0.5, z: -0.01295433}
 --- !u!114 &3746923809803186622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,4 +142,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19ec00feb8e09454db6b86f6966ae223, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ingredientPosition: {fileID: 0}
+  _cutIngredientPrefab: {fileID: 6407418585212457178, guid: 18e3763d869f1a7468e8f1e202d58ead, type: 3}
+  _ingredientPosition: {fileID: 2471552907723585008}
