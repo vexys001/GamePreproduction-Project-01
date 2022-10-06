@@ -130,6 +130,11 @@ public class Claw : MonoBehaviour
         _heldGO.GetComponent<Ingredient>().Fall();
         _heldGO = null;
 
+        foreach (Interactable interactable in _interactables)
+        {
+            interactable.HideUI();
+        }
+        _interactables.Clear();
 
         _holding = false;
     }
