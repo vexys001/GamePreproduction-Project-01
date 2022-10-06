@@ -15,4 +15,9 @@ public class Interactable : MonoBehaviour
     {
         _canvas.SetActive(false);
     }
+
+    public void RotateCanvas()
+    {
+        _canvas.transform.localRotation = Quaternion.Euler(0, -180, 0);
+    }
 }

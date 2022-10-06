@@ -52,6 +52,7 @@ public class CuttingBoard : MonoBehaviour
             _ingredient.StopMoving();
             _ingredientGO.transform.parent = _ingredientPosition.transform;
             _ingredientGO.transform.localPosition = Vector3.zero;
+            _ingredientGO.transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
     }
 }

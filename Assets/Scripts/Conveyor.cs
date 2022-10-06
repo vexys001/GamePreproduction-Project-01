@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DefaultNamespace;
+using Unity.VisualScripting;
 using UnityEngine;
 using Random = System.Random;
 
@@ -59,6 +60,11 @@ public class Conveyor : MonoBehaviour
     private void OnSpawnIngredient(Ingredient.Type ingredient)
     {
         Ingredient ingredientPrefab = _ingredientsPrefab.Find(ing => ing.GetIngredientType() == ingredient);
+        if (!_autoSpawn)
+        {
+            ingredientPrefab.GetComponent<Interactable>().RotateCanvas();
+        }
+
         SpawnIngredient(ingredientPrefab);
     }
 
