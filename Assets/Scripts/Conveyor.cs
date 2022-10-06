@@ -83,4 +83,13 @@ public class Conveyor : MonoBehaviour
             SpawnIngredient(_ingredientsPrefab[index]);
         }
     }
+
+    private void OnCollisionEnter(Collision other) 
+    {
+        if(other.gameObject.CompareTag("Ingredient"))
+        {
+            Ingredient go = other.gameObject.GetComponent<Ingredient>();
+            go.StartMoving(_conveyorSpeed);            
+        }
+    }
 }
