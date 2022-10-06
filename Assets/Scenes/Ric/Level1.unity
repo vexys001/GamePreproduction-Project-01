@@ -2691,7 +2691,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ecdf5ce709f37e4199a8f8792441c39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxTimer: 180
+  _maxTimer: 360
   _timer: 0
   Active: 0
   TimeLeftText: {fileID: 1318383463}
@@ -2765,10 +2765,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1883efedc2b07a04cb9de90881cacbcb, type: 2}
   - {fileID: 11400000, guid: d2cb9d8b2d1d0834890a0ff624cabff2, type: 2}
   - {fileID: 11400000, guid: 54d3d35e734cd1447849985cc1c2385a, type: 2}
-  _timeBetweenOrders: 60
+  _timeBetweenOrders: 55
   _maxNumberOfOrders: 10
   _timePerOrder: 180
-  _timeGainedPerOrder: 20
+  _timeGainedPerOrder: 100
   _maxScore: 100
   _ordersTray: {fileID: 423565954}
 --- !u!1001 &1151723216
@@ -3453,7 +3453,7 @@ MonoBehaviour:
   commandIds:
   - tomato
   - bread
-  - letuce
+  - lettuce
   - cheese
   - ham
   _cooldown: 5
