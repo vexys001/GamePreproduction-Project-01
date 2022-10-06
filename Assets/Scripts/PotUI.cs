@@ -11,14 +11,14 @@ public class PotUI : MonoBehaviour
     private int _currentIngredient = 0;
     private void OnEnable()
     {
-        GameEvents.OnIngredientAddedToPot += OnIngredientAddedToPot;
+        GameEvents.OnValidIngredientAddedToPot += OnIngredientAddedToPot;
         GameEvents.OnOrderDone += OnOrderDone;
         GameEvents.OnOrderExpired += OnOrderDone;
     }
 
     private void OnDisable()
     {
-        GameEvents.OnIngredientAddedToPot -= OnIngredientAddedToPot;
+        GameEvents.OnValidIngredientAddedToPot -= OnIngredientAddedToPot;
         GameEvents.OnOrderDone -= OnOrderDone;
         GameEvents.OnOrderExpired -= OnOrderDone;
     }

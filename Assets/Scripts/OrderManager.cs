@@ -48,6 +48,7 @@ public class OrderManager : MonoBehaviour
         {
             if (_orders[0].CurrentIngredient() == ingredient.GetIngredientType() && _orders[0].GetIsCut() == ingredient.GetIsCut())
             {
+                GameEvents.OnValidIngredientAddedToPot(ingredient);
                 _orders[0].NextIngredient();
                 if (_orders[0].IsDone())
                 {
