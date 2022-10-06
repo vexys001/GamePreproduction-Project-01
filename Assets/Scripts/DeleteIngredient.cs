@@ -10,6 +10,7 @@ public class DeleteIngredient : MonoBehaviour
     {
         if (other.CompareTag("Ingredient") && _claw.GetHeldObject() != other.gameObject)
         {
+            _claw.ResetInteractable();
             Destroy(other.gameObject);
         }
     }
@@ -18,6 +19,7 @@ public class DeleteIngredient : MonoBehaviour
     {
         if (collision.rigidbody.gameObject.CompareTag("Ingredient") && _claw != null && _claw.GetHeldObject() != collision.rigidbody.gameObject)
         {
+            _claw.ResetInteractable();
             Destroy(collision.rigidbody.gameObject);
         }
     }

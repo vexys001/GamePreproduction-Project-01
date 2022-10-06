@@ -46,12 +46,7 @@ public class Claw : MonoBehaviour
         {
             hits = Physics.SphereCastAll(ClawObject.transform.position, _grabbingRadius, -ClawObject.transform.up, _grabbingLength, GrabbingMask);
 
-            foreach (Interactable interactable in _interactables)
-            {
-                interactable.HideUI();
-            }
-            
-            _interactables.Clear();
+            ResetInteractable();
             
             if (hits.Length > 0 && !_holding && _isActive)
             {
@@ -130,11 +125,7 @@ public class Claw : MonoBehaviour
         _heldGO.GetComponent<Ingredient>().Fall();
         _heldGO = null;
 
-        foreach (Interactable interactable in _interactables)
-        {
-            interactable.HideUI();
-        }
-        _interactables.Clear();
+        ResetInteractable();
 
         _holding = false;
     }
@@ -183,9 +174,17 @@ public class Claw : MonoBehaviour
     public void Deactivate()
     {
         _isActive = false;
+        ResetInteractable();
+    }
+
+    public void ResetInteractable()
+    {
         foreach (Interactable interactable in _interactables)
         {
-            interactable.HideUI();
+            if (interactable != null)
+            {
+                interactable.HideUI();
+            }
         }
         _interactables.Clear();
     }
