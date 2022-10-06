@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
     private bool _characterIsUsingCrane = false;
     [SerializeField] private Claw _claw = null;
 
-
+    private Interactable _interactable;
 
     private void Awake()
     {
@@ -41,9 +41,20 @@ public class PlayerController : MonoBehaviour
         RaycastHit hit;
         Ray _forwardRay = new Ray(_raycastStartPosition.position,transform.forward);
         
+        bool hasHit = Physics.Raycast(_forwardRay, out hit, _rayDistance, _interactableLayer);
+
+        if (hasHit)
+        {
+            _interactable = hit.collider.gameObject.GetComponent<Interactable>();
+            _interactable.ShowUI();
+        }
+        else
+        {
+            _interactable?.HideUI();
+        }
+
         if(Input.GetKeyDown(KeyCode.E))
         {
-            bool hasHit = Physics.Raycast(_forwardRay, out hit, _rayDistance, _interactableLayer);
             if (hasHit)
             {
                 if(hit.collider.tag == "CuttingBoard")
@@ -61,12 +72,14 @@ public class PlayerController : MonoBehaviour
                         _characterIsUsingCrane = !_characterIsUsingCrane;
                         if (_characterIsUsingCrane)
                         {
+                            _claw.Activate();
                             _walkingSpeed = 0;
                             _rotationSpeed = 0;
                             _claw.enabled = true;
                         }
                         else 
                         {
+                            _claw.Deactivate();
                             _claw.enabled = false;
                             _claw.firstPersonCamera.SetActive(false);
                             _claw.thirdPersonCamera.SetActive(true);

@@ -7,6 +7,8 @@ public class Claw : MonoBehaviour
     private Rigidbody _rb;
     public GameObject ClawObject;
     public Transform CameraTransform;
+    private bool _isActive = false;
+    private List<Interactable> _interactables = new List<Interactable>();
 
     [Header("Camera")]
     public GameObject firstPersonCamera;
@@ -39,22 +41,48 @@ public class Claw : MonoBehaviour
     {
         Movement();
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        RaycastHit[] hits;
+        if (_isActive)
         {
-            if (!_holding)
-            {
-                RaycastHit[] hits = Physics.SphereCastAll(ClawObject.transform.position, _grabbingRadius, -ClawObject.transform.up, _grabbingLength, GrabbingMask);
+            hits = Physics.SphereCastAll(ClawObject.transform.position, _grabbingRadius, -ClawObject.transform.up, _grabbingLength, GrabbingMask);
 
-                if (hits.Length > 0)
+            foreach (Interactable interactable in _interactables)
+            {
+                interactable.HideUI();
+            }
+            
+            _interactables.Clear();
+            
+            if (hits.Length > 0 && !_holding && _isActive)
+            {
+                foreach (RaycastHit hit in hits)
                 {
-                    TakeObject(hits[0].collider.gameObject);
+                    Interactable interactable = hit.collider.gameObject.GetComponent<Interactable>();
+                    if (interactable != null)
+                    {
+                        interactable.ShowUI();
+                        _interactables.Add(interactable);
+                    }
                 }
             }
-            else
+
+            if (Input.GetKeyDown(KeyCode.Q))
             {
-                DropObject();
+                if (!_holding)
+                {
+                    if (hits.Length > 0)
+                    {
+                        TakeObject(hits[0].collider.gameObject);
+                    }
+                }
+                else
+                {
+                    DropObject();
+                }
             }
         }
+
+        
         SwapCamera();
     }
 
@@ -140,5 +168,20 @@ public class Claw : MonoBehaviour
             firstPersonCamera.SetActive(false);
             thirdPersonCamera.SetActive(true);
         }
+    }
+
+    public void Activate()
+    {
+        _isActive = true;
+    }
+
+    public void Deactivate()
+    {
+        _isActive = false;
+        foreach (Interactable interactable in _interactables)
+        {
+            interactable.HideUI();
+        }
+        _interactables.Clear();
     }
 }
