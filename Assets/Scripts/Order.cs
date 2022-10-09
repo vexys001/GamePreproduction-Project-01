@@ -10,7 +10,7 @@ public class Order : MonoBehaviour
     [SerializeField] private Animator _animator;
     [SerializeField] private Renderer _renderer;
     [SerializeField] private int _ingredientDone = 0;
-    [SerializeField] private TextMeshPro _orderTimerText;
+    [SerializeField] private ProgressBar _progressBar;
 
     public float StartTime = 0;
     private float _timeToCompleteTheOrder;
@@ -25,13 +25,13 @@ public class Order : MonoBehaviour
         _renderer.GetPropertyBlock(_propBlock);
         _propBlock.SetTexture("_MainTex", recipeData.Icon);
         _renderer.SetPropertyBlock(_propBlock);
-        _orderTimerText.text = ((int)_timeToCompleteTheOrder).ToString();
+        _progressBar.SetTotalTime(time);
     }
 
     private void Update()
     {
         StartTime += Time.deltaTime;
-        _orderTimerText.text = ((int)_timeToCompleteTheOrder - (int)StartTime).ToString();
+        _progressBar.UpdateUi(_timeToCompleteTheOrder- StartTime);
         if (StartTime > _timeToCompleteTheOrder)
         {
             GameEvents.OnOrderExpired?.Invoke(this);
