@@ -4234,13 +4234,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 633965136, guid: 2f90c1f468aad5d48a66ac6cf2c2f57c, type: 3}
+      propertyPath: m_text
+      value: '1- Bread
+
+        2- Tomato
+
+        3- Lettuce cut'
+      objectReference: {fileID: 0}
     - target: {fileID: 1781452680, guid: 2f90c1f468aad5d48a66ac6cf2c2f57c, type: 3}
       propertyPath: m_text
-      value: '* Bread
+      value: '1- Bread
 
-        * Ham cut
+        2- Ham cut
 
-        * Cheese cut'
+        3- Cheese cut'
       objectReference: {fileID: 0}
     - target: {fileID: 1606243719748323081, guid: 2f90c1f468aad5d48a66ac6cf2c2f57c, type: 3}
       propertyPath: m_Name
@@ -4329,6 +4337,12 @@ PrefabInstance:
     - target: {fileID: 1606243719748323085, guid: 2f90c1f468aad5d48a66ac6cf2c2f57c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5878744954110546056, guid: 2f90c1f468aad5d48a66ac6cf2c2f57c, type: 3}
+      propertyPath: m_text
+      value: '1- Bread
+
+        2- Cheese cut'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f90c1f468aad5d48a66ac6cf2c2f57c, type: 3}
