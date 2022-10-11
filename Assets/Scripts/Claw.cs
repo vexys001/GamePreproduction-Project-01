@@ -36,18 +36,15 @@ public class Claw : MonoBehaviour
         _holding = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        Movement();
-
         RaycastHit[] hits;
         if (_isActive)
         {
             hits = Physics.SphereCastAll(ClawObject.transform.position, _grabbingRadius, -ClawObject.transform.up, _grabbingLength, GrabbingMask);
 
             ResetInteractable();
-            
+
             if (hits.Length > 0 && !_holding && _isActive)
             {
                 foreach (RaycastHit hit in hits)
@@ -60,7 +57,6 @@ public class Claw : MonoBehaviour
                     }
                 }
             }
-
             if (Input.GetKeyDown(KeyCode.Q))
             {
                 if (!_holding)
@@ -76,9 +72,11 @@ public class Claw : MonoBehaviour
                 }
             }
         }
-
-        
         SwapCamera();
+    }
+    void FixedUpdate()
+    {
+        Movement();
     }
 
     private void Movement()
@@ -90,11 +88,12 @@ public class Claw : MonoBehaviour
 
         if (input.magnitude != 0)
         {
-            _rb.AddForce(input * Acceleration * Time.deltaTime, ForceMode.Impulse);
+            _rb.AddForce(input * Acceleration * Time.fixedDeltaTime, ForceMode.VelocityChange);
         }
         else
         {
-            _rb.velocity = Vector3.Lerp(_rb.velocity, Vector3.zero, DeccelerationRate * Time.deltaTime);
+            _rb.velocity = Vector3.Lerp(_rb.velocity, Vector3.zero, DeccelerationRate * Time.fixedDeltaTime);
+            //_rb.velocity = new Vector3 (0,0,0);
         }
     }
 
