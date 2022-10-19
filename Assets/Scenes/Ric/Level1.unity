@@ -4107,6 +4107,50 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3696608548040735498, guid: 2f90c1f468aad5d48a66ac6cf2c2f57c, type: 3}
+      propertyPath: m_fontSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3696608548040735498, guid: 2f90c1f468aad5d48a66ac6cf2c2f57c, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3696608548056814850, guid: 2f90c1f468aad5d48a66ac6cf2c2f57c, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3696608548056814850, guid: 2f90c1f468aad5d48a66ac6cf2c2f57c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3696608548075589622, guid: 2f90c1f468aad5d48a66ac6cf2c2f57c, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3696608548102003413, guid: 2f90c1f468aad5d48a66ac6cf2c2f57c, type: 3}
+      propertyPath: m_fontSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3696608548102003413, guid: 2f90c1f468aad5d48a66ac6cf2c2f57c, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3696608548830881225, guid: 2f90c1f468aad5d48a66ac6cf2c2f57c, type: 3}
+      propertyPath: m_fontSize
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 3696608548830881225, guid: 2f90c1f468aad5d48a66ac6cf2c2f57c, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 3696608549306961717, guid: 2f90c1f468aad5d48a66ac6cf2c2f57c, type: 3}
+      propertyPath: m_fontSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3696608549306961717, guid: 2f90c1f468aad5d48a66ac6cf2c2f57c, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 5878744954110546056, guid: 2f90c1f468aad5d48a66ac6cf2c2f57c, type: 3}
       propertyPath: m_text
       value: '1- Bread
