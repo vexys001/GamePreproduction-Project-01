@@ -573,6 +573,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &525915859 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6389803468728420744, guid: bb6aa8a5a4819864cbbc6b324dd2ba65, type: 3}
+  m_PrefabInstance: {fileID: 6389803468169680494}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &692881709
 GameObject:
   m_ObjectHideFlags: 0
@@ -1217,6 +1222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mainMenu: {fileID: 1447052076}
+  _startCanvas: {fileID: 525915859}
   _controlMenu: {fileID: 525049576}
   _backButton: {fileID: 736934420}
   _controlButton: {fileID: 191650563}
@@ -1460,6 +1466,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6389803467012990124, guid: bb6aa8a5a4819864cbbc6b324dd2ba65, type: 3}
+      propertyPath: m_CullTransparentMesh
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6389803467012990161, guid: bb6aa8a5a4819864cbbc6b324dd2ba65, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6389803467012990161, guid: bb6aa8a5a4819864cbbc6b324dd2ba65, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -75
@@ -1467,6 +1481,10 @@ PrefabInstance:
     - target: {fileID: 6389803467926407481, guid: bb6aa8a5a4819864cbbc6b324dd2ba65, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -175
+      objectReference: {fileID: 0}
+    - target: {fileID: 6389803468015582004, guid: bb6aa8a5a4819864cbbc6b324dd2ba65, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6389803468728420740, guid: bb6aa8a5a4819864cbbc6b324dd2ba65, type: 3}
       propertyPath: m_Pivot.x
@@ -1554,6 +1572,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6389803468728420742, guid: bb6aa8a5a4819864cbbc6b324dd2ba65, type: 3}
       propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6389803468728420743, guid: bb6aa8a5a4819864cbbc6b324dd2ba65, type: 3}
+      propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6389803468728420744, guid: bb6aa8a5a4819864cbbc6b324dd2ba65, type: 3}
