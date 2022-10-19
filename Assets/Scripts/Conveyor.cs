@@ -76,6 +76,7 @@ public class Conveyor : MonoBehaviour
 
     IEnumerator SpawnIngredientLoop()
     {
+        yield return new WaitForSecondsRealtime(Config.StartAnimationTime);
         while (true)
         {
             yield return new WaitForSecondsRealtime(_autoSpawnTimer);

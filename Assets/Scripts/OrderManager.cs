@@ -38,7 +38,6 @@ public class OrderManager : MonoBehaviour
     void Start()
     {
         _coroutine = StartCoroutine(SpawnOrder());
-        CountdownManager.Instance.StartCountdown();
     }
 
     public void IngredientCollected(Ingredient ingredient)
@@ -111,6 +110,8 @@ public class OrderManager : MonoBehaviour
 
     IEnumerator SpawnOrder()
     {
+        yield return new WaitForSecondsRealtime(Config.StartAnimationTime);
+        CountdownManager.Instance.StartCountdown();
         while (true)
         {
             if (_maxNumberOfOrders > _orders.Count)
